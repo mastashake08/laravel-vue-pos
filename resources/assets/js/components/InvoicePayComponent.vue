@@ -60,9 +60,11 @@
           this.paymentRequest.show().then(function(data){
             axios.post('/api/invoice/pay/'+that.invoice.id,data).then(function(data){
               alert('Success');
+              return paymentResponse.complete();
             })
           }).catch(function(err){
             console.log(err);
+            return paymentResponse.complete();
           });
 
         },
