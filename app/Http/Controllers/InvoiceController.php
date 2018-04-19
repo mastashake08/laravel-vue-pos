@@ -99,4 +99,10 @@ class InvoiceController extends Controller
           'success' => Invoice::findOrFail($id)->delete()
         ]);
     }
+
+    function getPayInvoice($id){
+      return view('invoice')->with([
+        'invoice' => Invoice::findOrFail($id)
+      ]);
+    }
 }

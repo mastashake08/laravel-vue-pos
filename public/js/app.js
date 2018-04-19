@@ -1098,6 +1098,8 @@ window.Vue = __webpack_require__(36);
 
 Vue.component('charge-component', __webpack_require__(39));
 Vue.component('invoice-component', __webpack_require__(42));
+Vue.component('invoice-pay-component', __webpack_require__(55));
+
 var app = new Vue({
   el: '#app'
 });
@@ -43463,7 +43465,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     createInvoice: function createInvoice() {
       var that = this;
-      axios.post('/api/invoice', { name: this.name, amount: this.amount, description: this.description }).then(function (data) {
+      axios.post('/api/invoice', { name: this.name, amount: this.amount * 100, description: this.description, email: this.email }).then(function (data) {
         that.invoices.push(data.data.invoice);
         alert('Success!');
       }).catch(function (error) {
@@ -43684,6 +43686,186 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(56)
+/* template */
+var __vue_template__ = __webpack_require__(57)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/InvoicePayComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7125969b", Component.options)
+  } else {
+    hotAPI.reload("data-v-7125969b", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 56 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      invoice: null,
+      paymentRequest: null
+    };
+  },
+  created: function created() {
+    this.invoice = JSON.parse(this.invoiceObject);
+  },
+
+  methods: {
+    payInvoice: function payInvoice() {
+      var supportedPaymentMethods = [{
+        supportedMethods: 'basic-card'
+      }];
+      var paymentDetails = {
+        total: {
+          label: 'Total',
+          amount: {
+            currency: 'USD',
+            value: this.invoice.amount / 100
+          }
+        }
+      };
+      // Options isn't required.
+      var options = {};
+
+      this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
+      this.paymentRequest.show().then(function (data) {
+        console.log(data);
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  },
+  props: ['invoiceObject']
+});
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Make A Invoice")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _vm._v(
+              "\n                    Your total amount due is " +
+                _vm._s(_vm.invoice.amount / 100) +
+                "\n                    "
+            ),
+            _c("br"),
+            _vm._v(
+              "\n                    " +
+                _vm._s(_vm.invoice.description) +
+                "\n                    "
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { click: _vm.payInvoice() }
+              },
+              [_vm._v("Pay")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7125969b", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

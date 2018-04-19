@@ -68,7 +68,7 @@
         methods: {
         createInvoice: function(){
         var that = this;
-        axios.post('/api/invoice',{name: this.name, amount: this.amount, description: this.description})
+        axios.post('/api/invoice',{name: this.name, amount: this.amount * 100, description: this.description, email: this.email})
         .then(function(data){
           that.invoices.push(data.data.invoice);
         alert('Success!')
