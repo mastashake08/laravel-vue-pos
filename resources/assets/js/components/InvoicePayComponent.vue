@@ -10,7 +10,7 @@
                         <br>
                         {{invoice.description}}
                         <br>
-                        <button :click="payInvoice()" class="btn btn-primary">Pay</button>
+                        <button v-on:click="payInvoice()" class="btn btn-primary">Pay</button>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
           ];
           const paymentDetails = {
             total: {
-              label: 'Total',
+              label: this.invoice.description,
               amount:{
                 currency: 'USD',
                 value: this.invoice.amount/100
@@ -56,8 +56,11 @@
             paymentDetails,
             options
           );
+          var that = this;
           this.paymentRequest.show().then(function(data){
-            console.log(data);
+            axios.post('/api/invoice/pay/'+that.invoice.id,data).then(function(data){
+              alert('Success');
+            })
           }).catch(function(err){
             console.log(err);
           });

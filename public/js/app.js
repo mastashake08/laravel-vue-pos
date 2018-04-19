@@ -43792,7 +43792,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }];
       var paymentDetails = {
         total: {
-          label: 'Total',
+          label: this.invoice.description,
           amount: {
             currency: 'USD',
             value: this.invoice.amount / 100
@@ -43803,8 +43803,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var options = {};
 
       this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
+      var that = this;
       this.paymentRequest.show().then(function (data) {
-        console.log(data);
+        axios.post('/api/invoice/pay/' + that.invoice.id, data).then(function (data) {
+          alert('Success');
+        });
       }).catch(function (err) {
         console.log(err);
       });
@@ -43847,7 +43850,11 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-primary",
-                attrs: { click: _vm.payInvoice() }
+                on: {
+                  click: function($event) {
+                    _vm.payInvoice()
+                  }
+                }
               },
               [_vm._v("Pay")]
             )

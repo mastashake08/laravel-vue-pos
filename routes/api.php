@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::middleware('auth:api')->post('/charge','StripeController@charge');
 Route::middleware('auth:api')->resource('/invoice','InvoiceController');
+Route::post('/invoice/pay/{id}','InvoiceController@payInvoice');
