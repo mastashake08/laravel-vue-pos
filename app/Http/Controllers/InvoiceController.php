@@ -116,7 +116,7 @@ class InvoiceController extends Controller
         // Use Stripe's library to make requests...
         $token = \Stripe\Token::create(array(
           "card" => array(
-            "number" => $request->details['card_number'],
+            "number" => $request->details['cardNumber'],
             "exp_month" => $request->details['expiryMonth'],
             "exp_year" => $request->details['expiryYear'],
             "cvc" => $request->details['cardSecurityCode']
