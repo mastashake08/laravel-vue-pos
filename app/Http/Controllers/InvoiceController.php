@@ -122,13 +122,17 @@ class InvoiceController extends Controller
             "cvc" => $request->details['cardSecurityCode']
           )
         ));
-        \Stripe\Charge::create(array(
+        $charge = \Stripe\Charge::create(array(
           "amount" => $invoice->amount,
           "currency" => "usd",
           "source" => $token, // obtained with Stripe.js
           "description" => $invoice->description,
           "receipt_email" => $invoice->email
         ));
+        $invoice->charge_id = $charge->id;
+        $invoice->is_paid = true;
+        $invoice->save();
+
         return response()->json([
           'success' => true
         ]);

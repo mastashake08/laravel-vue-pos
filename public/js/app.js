@@ -43807,11 +43807,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.paymentRequest.show().then(function (data) {
         axios.post('/api/invoice/pay/' + that.invoice.id, data).then(function (data) {
           alert('Success');
-          return paymentResponse.complete();
+          return data.complete();
         });
       }).catch(function (err) {
         console.log(err);
-        return paymentResponse.complete();
+        return data.complete();
       });
     }
   },
