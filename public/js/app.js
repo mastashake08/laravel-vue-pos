@@ -43486,7 +43486,7 @@ var render = function() {
       _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
         _c("div", { staticClass: "panel panel-default" }, [
           _c("div", { staticClass: "panel-heading" }, [
-            _vm._v("Make A Charge")
+            _vm._v("Make A Invoice")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
@@ -43514,6 +43514,8 @@ var render = function() {
                     staticClass: "form-control",
                     attrs: {
                       type: "number",
+                      min: "1.00",
+                      max: "10000.00",
                       id: "amount",
                       placeholder: "Amount To Charge"
                     },
@@ -43552,7 +43554,7 @@ var render = function() {
                     ],
                     staticClass: "form-control",
                     attrs: {
-                      type: "number",
+                      type: "text",
                       id: "name",
                       placeholder: "Name To Charge"
                     },

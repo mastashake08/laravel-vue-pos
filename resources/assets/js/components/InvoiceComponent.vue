@@ -3,20 +3,20 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Make A Charge</div>
+                    <div class="panel-heading">Make A Invoice</div>
 
                     <div class="panel-body">
                         <fieldset>
                         <div class="form-group">
                         <label class="col-sm-3 control-label" for="amount">Amount</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control"  id="amount" placeholder="Amount To Charge" v-model="amount">
+                          <input type="number" class="form-control"  min="1.00" max="10000.00" id="amount" placeholder="Amount To Charge" v-model="amount">
                         </div>
                       </div>
                       <div class="form-group">
                       <label class="col-sm-3 control-label" for="name">Name</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control"  id="name" placeholder="Name To Charge" v-model="name">
+                        <input type="text" class="form-control"  id="name" placeholder="Name To Charge" v-model="name">
                       </div>
                     </div>
                         <div class="form-group">
