@@ -16,7 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('charge-component', require('./components/ChargeComponent.vue'));
-
+Vue.component('invoice-component',require('./components/InvoiceComponent.vue'));s
 const app = new Vue({
     el: '#app'
 });
