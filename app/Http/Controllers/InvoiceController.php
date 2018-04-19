@@ -110,7 +110,7 @@ class InvoiceController extends Controller
       ]);
     }
 
-    function payInvoice($id){
+    function payInvoice(Request $request,$id){
       $invoice = Invoice::findOrFail($id);
       try {
         // Use Stripe's library to make requests...
