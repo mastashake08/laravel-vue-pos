@@ -123,7 +123,7 @@ class InvoiceController extends Controller
           )
         ));
         \Stripe\Charge::create(array(
-          "amount" => $invoice,
+          "amount" => $invoice->amount,
           "currency" => "usd",
           "source" => $token, // obtained with Stripe.js
           "description" => $invoice->description,
