@@ -1097,7 +1097,7 @@ window.Vue = __webpack_require__(36);
  */
 
 Vue.component('charge-component', __webpack_require__(39));
-Vue.component('invoice-component', __webpack_require__(42));s;
+Vue.component('invoice-component', __webpack_require__(42));
 var app = new Vue({
   el: '#app'
 });
