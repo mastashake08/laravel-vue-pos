@@ -57,15 +57,14 @@
             options
           );
           var that = this;
-          this.paymentRequest.show().then(function(pay){
-            var paydata = pay
-            axios.post('/api/invoice/pay/'+that.invoice.id,data).then(function(data){
+          this.paymentRequest.show().then(pay => {
+          var paydata = pay
+            axios.post('/api/invoice/pay/'+that.invoice.id,data).then(data => {
               alert('Success');
-              return paydata.complete();
+              return pay.complete();
             })
-          }).catch(function(err){
-            console.log(err);
-            return paydata.complete();
+          }).catch(() =>{
+            return pay.complete();
           });
 
         },
