@@ -1099,7 +1099,7 @@ window.Vue = __webpack_require__(36);
 Vue.component('charge-component', __webpack_require__(39));
 Vue.component('invoice-component', __webpack_require__(42));
 Vue.component('invoice-pay-component', __webpack_require__(45));
-Vue.component('customer-component', __webpack_require__(48));
+Vue.component('customers-component', __webpack_require__(48));
 var app = new Vue({
   el: '#app'
 });
@@ -43887,7 +43887,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/CustomerComponent.vue"
+Component.options.__file = "resources/assets/js/components/CustomersComponent.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -43897,9 +43897,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-69442e18", Component.options)
+    hotAPI.createRecord("data-v-90370ac2", Component.options)
   } else {
-    hotAPI.reload("data-v-69442e18", Component.options)
+    hotAPI.reload("data-v-90370ac2", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -44002,10 +44002,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     createCustomer: function createCustomer() {
       var that = this;
       axios.post('/api/customer', { customer: this.customer }).then(function (data) {
-        that.invoices.push(data.data);
+        that.customers.data.push(data.data);
       }).catch(function (error) {
         alert(error.message);
       });
+    },
+    deleteCustomer: function deleteCustomer(id) {
+      var that = this;
+      axios.delete('/api/customer/' + id).then(function (data) {
+        alert('success');
+      });
+    },
+    createInvoice: function createInvoice(customer) {
+      var that = this;
+      var amount = prompt('How Much Is Invoice?');
+      if (amount > 0) {
+        var desc = prompt('Enter Description.');
+        axios.post('/api/invoice', { name: customer.description, amount: amount * 100, description: desc, email: customer.email }).then(function (data) {
+          alert('Invoice Sent!');
+        });
+      }
     }
 
   }
@@ -44044,9 +44060,9 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.customers, function(customer) {
+                        _vm._l(_vm.customers.data, function(customer) {
                           return _c("tr", [
-                            _c("td", [_vm._v(_vm._s(customer.name))]),
+                            _c("td", [_vm._v(_vm._s(customer.description))]),
                             _vm._v(" "),
                             _c("td", [_vm._v(_vm._s(customer.email))]),
                             _vm._v(" "),
@@ -44054,7 +44070,14 @@ var render = function() {
                               _c("div", { staticClass: "form-group" }, [
                                 _c(
                                   "button",
-                                  { staticClass: "btn btn-sm btn-info" },
+                                  {
+                                    staticClass: "btn btn-sm btn-info",
+                                    on: {
+                                      click: function($event) {
+                                        _vm.createInvoice(customer)
+                                      }
+                                    }
+                                  },
                                   [_vm._v("Create Invoice")]
                                 )
                               ]),
@@ -44062,7 +44085,14 @@ var render = function() {
                               _c("div", { staticClass: "form-group" }, [
                                 _c(
                                   "button",
-                                  { staticClass: "btn btn-sm btn-danger" },
+                                  {
+                                    staticClass: "btn btn-sm btn-danger",
+                                    on: {
+                                      click: function($event) {
+                                        _vm.deleteCustomer(customer.id)
+                                      }
+                                    }
+                                  },
                                   [_vm._v("Delete Customer")]
                                 )
                               ])
@@ -44181,7 +44211,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-69442e18", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-90370ac2", module.exports)
   }
 }
 

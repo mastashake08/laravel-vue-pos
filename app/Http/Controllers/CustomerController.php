@@ -42,8 +42,8 @@ class CustomerController extends Controller
     {
         //
         return \Stripe\Customer::create(array(
-                "description" => $request->name,
-                "email" => $request->email
+                "description" => $request->input('customer.name'),
+                "email" => $request->input('customer.email')
               ));
     }
 

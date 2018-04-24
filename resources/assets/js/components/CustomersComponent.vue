@@ -16,15 +16,15 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="customer in customers">
-                         <td>{{customer.name}}</td>
+                        <tr v-for="customer in customers.data">
+                         <td>{{customer.description}}</td>
                          <td>{{customer.email}}</td>
                          <td>
                            <div class="form-group">
-                             <button class="btn btn-sm btn-info">Create Invoice</button>
+                             <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">Create Invoice</button>
                           </div>
                           <div class="form-group">
-                            <button class="btn btn-sm btn-danger">Delete Customer</button>
+                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(customer.id)">Delete Customer</button>
                          </div>
                          </td>
                         </tr>
@@ -85,11 +85,28 @@
         var that = this;
         axios.post('/api/customer',{customer: this.customer})
         .then(function(data){
-          that.invoices.push(data.data);
+          that.customers.data.push(data.data);
         }).catch(function(error){
         alert(error.message);
         });
       },
+      deleteCustomer:function(id){
+        var that = this;
+        axios.delete('/api/customer/'+id).then(function(data){
+          alert('success');
+        });
+      },
+      createInvoice:function(customer){
+        var that = this;
+        var amount = prompt('How Much Is Invoice?');
+        if(amount > 0){
+          var desc = prompt('Enter Description.');
+          axios.post('/api/invoice',{name: customer.description, amount: amount* 100, description: desc, email: customer.email}).then(function(data){
+            alert('Invoice Sent!');
+          });
+        }
+
+      }
 
         }
     }
