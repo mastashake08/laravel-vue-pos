@@ -58,13 +58,14 @@
           );
           var that = this;
           this.paymentRequest.show().then(function(pay){
+            var paydata = pay
             axios.post('/api/invoice/pay/'+that.invoice.id,data).then(function(data){
               alert('Success');
-              return pay.complete();
+              return paydata.complete();
             })
           }).catch(function(err){
             console.log(err);
-            return pay.complete();
+            return paydata.complete();
           });
 
         },
