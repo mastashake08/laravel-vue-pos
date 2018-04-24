@@ -57,14 +57,14 @@
             options
           );
           var that = this;
-          this.paymentRequest.show().then(function(data){
+          this.paymentRequest.show().then(function(pay){
             axios.post('/api/invoice/pay/'+that.invoice.id,data).then(function(data){
               alert('Success');
-              return data.complete();
+              return pay.complete();
             })
           }).catch(function(err){
             console.log(err);
-            return data.complete();
+            return pay.complete();
           });
 
         },
