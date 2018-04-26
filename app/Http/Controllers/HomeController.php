@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $with = [
-          'balance' => \Stripe\Balance::retrieve();
+          'balance' => \Stripe\Balance::retrieve()
         ];
         return view('home')->with($with);
     }
