@@ -43227,9 +43227,129 @@ module.exports = Component.exports
 
 /***/ }),
 /* 40 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (109:4)\n\n\u001b[0m \u001b[90m 107 | \u001b[39m    }\u001b[33m,\u001b[39m\n \u001b[90m 108 | \u001b[39m    props\u001b[33m:\u001b[39m [\u001b[32m'balance'\u001b[39m]\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 | \u001b[39m    methods\u001b[33m:\u001b[39m {\n \u001b[90m     | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 | \u001b[39m    createCharge\u001b[33m:\u001b[39m \u001b[36mfunction\u001b[39m(){\n \u001b[90m 111 | \u001b[39m    axios\u001b[33m.\u001b[39mpost(\u001b[32m'/api/charge'\u001b[39m\u001b[33m,\u001b[39m{card\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mcard\u001b[33m,\u001b[39m amount\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mamount\u001b[33m,\u001b[39m description\u001b[33m:\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mdescription})\n \u001b[90m 112 | \u001b[39m    \u001b[33m.\u001b[39mthen(\u001b[36mfunction\u001b[39m(data){\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    },
+    data: function data() {
+        return {
+            card: {
+                card_number: null,
+                expiry_year: null,
+                expiry_month: null,
+                cvv: null
+            },
+            amount: 0,
+            email: null,
+            description: null
+        };
+    },
+
+    props: ['balance'],
+    methods: {
+        createCharge: function createCharge() {
+            axios.post('/api/charge', { card: this.card, amount: this.amount, description: this.description }).then(function (data) {
+                alert('Success!');
+            }).catch(function (error) {
+                alert(error.message);
+            });
+        }
+    }
+});
 
 /***/ }),
 /* 41 */
@@ -43248,7 +43368,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _c("h2", [_vm._v("Balance: " + _vm._s(_vm.balance))]),
+            _c("h2", [_vm._v("Balance: $" + _vm._s(_vm.balance))]),
             _vm._v(" "),
             _c("fieldset", [
               _c("div", { staticClass: "form-group" }, [

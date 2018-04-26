@@ -24,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $balance = \Stripe\Balance::retrieve();
+
         $with = [
-          'balance' => \Stripe\Balance::retrieve()
+          'balance' => $balance->available[0]['amount']/100
         ];
         return view('home')->with($with);
     }
