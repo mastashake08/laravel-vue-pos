@@ -6,7 +6,7 @@
                     <div class="panel-heading">Activate Subscription</div>
 
                     <div class="panel-body">
-                        
+
                         <button v-on:click="activateSubscription()" class="btn btn-primary">Pay</button>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
           var that = this;
           this.paymentRequest.show().then(pay => {
           var paydata = pay
-            axios.post('/api/subscription',{pay,customer:that.customer,plan:that.plan}).then(data => {
+            axios.post('/api/subscription',{pay:pay,customer:that.customer,plan:that.plan}).then(data => {
               alert('Success');
               console.log(paydata);
               return pay.complete();

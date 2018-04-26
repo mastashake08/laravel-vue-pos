@@ -42,13 +42,12 @@ class SubscriptionController extends Controller
       //
       $token = \Stripe\Token::create(array(
         "card" => array(
-          "number" => $request->details['cardNumber'],
-          "exp_month" => $request->details['expiryMonth'],
-          "exp_year" => $request->details['expiryYear'],
-          "cvc" => $request->details['cardSecurityCode']
+          "number" => $request->pay['details']['cardNumber'],
+          "exp_month" => $request->pay['details']['expiryMonth'],
+          "exp_year" => $request->pay['details']['expiryYear'],
+          "cvc" => $request->pay['details']['cardSecurityCode']
         )
       ));
-      dd($token);
       return \Stripe\Subscription::create(array(
         "customer" => $request->input('customer'),
         "items" => array(
