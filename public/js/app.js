@@ -44572,7 +44572,7 @@ var render = function() {
                                           }
                                         }
                                       },
-                                      [_vm._v("Create Invoice")]
+                                      [_vm._v("Create Subscription")]
                                     )
                                   ])
                                 : _vm._e(),
