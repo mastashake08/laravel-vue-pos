@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h2>Balance: ${{$balance->available[0]['amount']/100}}</h2>
-<charge-component></charge-component>
+<charge-component balance="${{$balance->available[0]['amount']/100}}"></charge-component>
 <invoice-component></invoice-component>
 <customers-component></customers-component>
 <plans-component></plans-component>
