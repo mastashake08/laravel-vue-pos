@@ -59,7 +59,7 @@
           var that = this;
           this.paymentRequest.show().then(pay => {
           var paydata = pay
-            axios.post('/api/invoice/pay/'+that.invoice.id,data).then(data => {
+            axios.post('/api/invoice/pay/'+that.invoice.id,pay).then(data => {
               alert('Success');
               console.log(paydata);
               return pay.complete();
