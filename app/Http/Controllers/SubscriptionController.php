@@ -48,6 +48,7 @@ class SubscriptionController extends Controller
           "cvc" => $request->details['cardSecurityCode']
         )
       ));
+      dd($token);
       return \Stripe\Subscription::create(array(
         "customer" => $request->input('customer'),
         "items" => array(
