@@ -44251,7 +44251,7 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
             _vm._v(
-              "\n                    Your total amount due is " +
+              "\n                    Your total amount due is $" +
                 _vm._s(_vm.invoice.amount / 100) +
                 "\n                    "
             ),

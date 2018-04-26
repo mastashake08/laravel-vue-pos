@@ -42,8 +42,8 @@ class InvoiceCreated extends Notification
     {
         return (new MailMessage)
                     ->subject('You Have A New Invoice Due')
-                    ->line('Pay NOW or suffer the consequences!')
-                    ->action('Pay UP!', url('/invoice/pay/'.$notifiable->id))
+                    ->line('Click below to handle!')
+                    ->action('Pay Now!', url('/invoice/pay/'.$notifiable->id))
                     ->line('Thank you for using our application!');
     }
 
