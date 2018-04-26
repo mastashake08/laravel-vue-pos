@@ -27,7 +27,6 @@ class HomeController extends Controller
         $with = [
           'balance' => \Stripe\Balance::retrieve()
         ];
-        dd($with);
         return view('home')->with($with);
     }
 }
