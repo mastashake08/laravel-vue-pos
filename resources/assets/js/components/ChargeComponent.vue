@@ -72,9 +72,10 @@
                           <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code" autocomplete="cvc" v-model="card.cvv">
                         </div>
                       </div>
+
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="button" class="btn btn-success" v-on:click="createCharge">Pay Now</button>
+                          <button type="button" class="btn btn-success" v-on:click="createCharge">Charge</button>
                         </div>
                       </div>
                         </fieldset>

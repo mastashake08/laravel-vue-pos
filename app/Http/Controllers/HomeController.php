@@ -13,6 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         $this->middleware('auth');
     }
 
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $with = [
+          'balance' => \Stripe\Balance::retrieve();
+        ];
+        return view('home')->with($with);
     }
 }

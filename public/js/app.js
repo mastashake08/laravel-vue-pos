@@ -43318,6 +43318,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -43750,7 +43751,7 @@ var render = function() {
                       attrs: { type: "button" },
                       on: { click: _vm.createCharge }
                     },
-                    [_vm._v("Pay Now")]
+                    [_vm._v("Charge")]
                   )
                 ])
               ])
