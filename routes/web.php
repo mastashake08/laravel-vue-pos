@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/invoice/pay/{id}','InvoiceController@getPayInvoice');
+Route::get('/subscription-activate','SubscriptionController@showActivation');

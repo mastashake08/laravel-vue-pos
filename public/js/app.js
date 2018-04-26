@@ -1100,6 +1100,8 @@ Vue.component('charge-component', __webpack_require__(39));
 Vue.component('invoice-component', __webpack_require__(42));
 Vue.component('invoice-pay-component', __webpack_require__(45));
 Vue.component('customers-component', __webpack_require__(48));
+Vue.component('plans-component', __webpack_require__(61));
+Vue.component('subscription-pay-component', __webpack_require__(64));
 var app = new Vue({
   el: '#app'
 });
@@ -43793,9 +43795,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var paydata = pay;
         axios.post('/api/invoice/pay/' + that.invoice.id, data).then(function (data) {
           alert('Success');
+          console.log(paydata);
           return pay.complete();
         });
-      }).catch(function () {
+      }).catch(function (pay) {
         return pay.complete();
       });
     }
@@ -43975,6 +43978,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -43987,7 +44022,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         'name': ''
       },
       customers: [],
-      ready: false
+      ready: false,
+      selectedCustomer: {},
+      plan: {},
+      plans: []
     };
   },
   created: function created() {
@@ -44022,6 +44060,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           alert('Invoice Sent!');
         });
       }
+    },
+    openModal: function openModal(customer) {
+      this.selectedCustomer = customer;
+      var that = this;
+      $('#subscriptionModal').modal('show');
+      axios.get('/api/plan').then(function (data) {
+        that.plans = data.data;
+        that.ready = true;
+      });
+    },
+    createSubscription: function createSubscription(customer, plan) {
+      axios.post('/api/subscription-activation', { customer: customer, plan: plan }).then(function (data) {
+        alert('Email Activation Sent');
+      });
     }
 
   }
@@ -44081,6 +44133,23 @@ var render = function() {
                                   [_vm._v("Create Invoice")]
                                 )
                               ]),
+                              _vm._v(" "),
+                              customer.subscriptions.data.length < 1
+                                ? _c("div", { staticClass: "form-group" }, [
+                                    _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-sm btn-primary",
+                                        on: {
+                                          click: function($event) {
+                                            _vm.openModal(customer)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Create Invoice")]
+                                    )
+                                  ])
+                                : _vm._e(),
                               _vm._v(" "),
                               _c("div", { staticClass: "form-group" }, [
                                 _c(
@@ -44202,10 +44271,120 @@ var render = function() {
           )
         ])
       ])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: { id: "subscriptionModal", role: "dialog" }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0, false, false),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-body" },
+              [
+                _c("transition", { attrs: { name: "fade" } }, [
+                  _vm.ready
+                    ? _c("div", { staticClass: "form-group" }, [
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.plan,
+                                expression: "plan"
+                              }
+                            ],
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.plan = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          _vm._l(_vm.plans.data, function(sub) {
+                            return _c("option", { domProps: { value: sub } }, [
+                              _vm._v(
+                                " " +
+                                  _vm._s(sub.name) +
+                                  " - $" +
+                                  _vm._s(sub.amount / 100) +
+                                  " "
+                              )
+                            ])
+                          })
+                        )
+                      ])
+                    : _vm._e()
+                ])
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-success",
+                  on: {
+                    click: function($event) {
+                      _vm.createSubscription(_vm.selectedCustomer, _vm.plan)
+                    }
+                  }
+                },
+                [_vm._v("Send Activation Link")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-default",
+                  attrs: { type: "button", "data-dismiss": "modal" }
+                },
+                [_vm._v("Close")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v("×")]
+      ),
+      _vm._v(" "),
+      _c("h4", { staticClass: "modal-title" }, [_vm._v("Select Plan")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44220,6 +44399,532 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(62)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/PlansComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8ad1a3ac", Component.options)
+  } else {
+    hotAPI.reload("data-v-8ad1a3ac", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      plan: {
+        amount: 0,
+        interval: 'month',
+        name: ''
+      },
+      ready: false,
+      plans: []
+    };
+  },
+  created: function created() {
+    var that = this;
+    axios.get('/api/plan').then(function (data) {
+      that.plans = data.data;
+      that.ready = true;
+    });
+  },
+
+  methods: {
+    createPlan: function createPlan() {
+      var that = this;
+      axios.post('/api/plan', { plan: this.plan }).then(function (data) {
+        that.plans.data.push(data.data);
+        alert('Success!');
+      }).catch(function (error) {
+        alert(error.message);
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c(
+          "div",
+          { staticClass: "panel panel-default" },
+          [
+            _c("div", { staticClass: "panel-heading" }, [
+              _vm._v("Manage Subscriptions")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "panel-body" }, [
+              _c("fieldset", [
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 control-label",
+                      attrs: { for: "amount" }
+                    },
+                    [_vm._v("Amount")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-9" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.plan.amount,
+                          expression: "plan.amount"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        min: "1.00",
+                        max: "10000.00",
+                        id: "amount",
+                        placeholder: "Amount To Charge"
+                      },
+                      domProps: { value: _vm.plan.amount },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.plan, "amount", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 control-label",
+                      attrs: { for: "name" }
+                    },
+                    [_vm._v("Name")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-9" }, [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.plan.name,
+                          expression: "plan.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        id: "name",
+                        placeholder: "Name To Plan"
+                      },
+                      domProps: { value: _vm.plan.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.plan, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c(
+                    "label",
+                    {
+                      staticClass: "col-sm-3 control-label",
+                      attrs: { for: "email" }
+                    },
+                    [_vm._v("Interval")]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-sm-9" }, [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.plan.interval,
+                            expression: "plan.interval"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.plan,
+                              "interval",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "day" } }, [
+                          _vm._v("Day")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "week" } }, [
+                          _vm._v("Week")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "option",
+                          { attrs: { value: "month", selected: "" } },
+                          [_vm._v("Month")]
+                        ),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "year" } }, [
+                          _vm._v("Year")
+                        ])
+                      ]
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "form-group" }, [
+                  _c("div", { staticClass: "col-sm-offset-3 col-sm-9" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        attrs: { type: "button" },
+                        on: { click: _vm.createPlan }
+                      },
+                      [_vm._v("Create Plan")]
+                    )
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("hr"),
+            _vm._v(" "),
+            _c("transition", { attrs: { name: "fade" } }, [
+              _c(
+                "ul",
+                { attrs: { if: "ready" } },
+                _vm._l(_vm.plans.data, function(plan) {
+                  return _c("li", [
+                    _vm._v(_vm._s(plan.id) + " - $" + _vm._s(plan.amount / 100))
+                  ])
+                })
+              )
+            ])
+          ],
+          1
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8ad1a3ac", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(65)
+/* template */
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SubscriptionPayComponent.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-555e4529", Component.options)
+  } else {
+    hotAPI.reload("data-v-555e4529", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      paymentRequest: null
+    };
+  },
+  created: function created() {},
+
+  methods: {
+    activateSubscription: function activateSubscription() {
+      var supportedPaymentMethods = [{
+        supportedMethods: 'basic-card'
+      }];
+      var paymentDetails = {
+        total: {
+          label: 'New Subscription',
+          amount: {
+            currency: 'USD',
+            value: this.amount / 100
+          }
+        }
+      };
+      // Options isn't required.
+      var options = {};
+
+      this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
+      var that = this;
+      this.paymentRequest.show().then(function (pay) {
+        var paydata = pay;
+        axios.post('/api/subscription', { pay: pay, customer: that.customer, plan: that.plan }).then(function (data) {
+          alert('Success');
+          console.log(paydata);
+          return pay.complete();
+        });
+      }).catch(function (pay) {
+        return pay.complete();
+      });
+    }
+  },
+  props: ['customer', 'plan', 'amount']
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Activate Subscription")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary",
+                on: {
+                  click: function($event) {
+                    _vm.activateSubscription()
+                  }
+                }
+              },
+              [_vm._v("Pay")]
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-555e4529", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

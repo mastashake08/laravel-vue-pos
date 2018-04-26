@@ -3,14 +3,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Make A Invoice</div>
+                    <div class="panel-heading">Activate Subscription</div>
 
                     <div class="panel-body">
-                        Your total amount due is {{invoice.amount / 100}}
-                        <br>
-                        {{invoice.description}}
-                        <br>
-                        <button v-on:click="payInvoice()" class="btn btn-primary">Pay</button>
+                        
+                        <button v-on:click="activateSubscription()" class="btn btn-primary">Pay</button>
                     </div>
                 </div>
             </div>
@@ -25,15 +22,13 @@
         },
         data(){
         return{
-          invoice: null,
           paymentRequest: null
         }
         },
         created(){
-          this.invoice = JSON.parse(this.invoiceObject);
         },
         methods: {
-        payInvoice: function(){
+        activateSubscription: function(){
           const supportedPaymentMethods = [
             {
               supportedMethods: 'basic-card',
@@ -41,10 +36,10 @@
           ];
           const paymentDetails = {
             total: {
-              label: this.invoice.description,
+              label: 'New Subscription',
               amount:{
                 currency: 'USD',
-                value: this.invoice.amount/100
+                value: this.amount/100
               }
             }
           };
@@ -59,7 +54,7 @@
           var that = this;
           this.paymentRequest.show().then(pay => {
           var paydata = pay
-            axios.post('/api/invoice/pay/'+that.invoice.id,data).then(data => {
+            axios.post('/api/subscription',{pay,customer:that.customer,plan:that.plan}).then(data => {
               alert('Success');
               console.log(paydata);
               return pay.complete();
@@ -70,7 +65,7 @@
 
         },
       },
-      props: ['invoiceObject']
+      props: ['customer','plan','amount']
         }
 
 </script>

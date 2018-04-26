@@ -22,3 +22,5 @@ Route::post('/invoice/pay/{id}','InvoiceController@payInvoice');
 
 //Customer routes
 Route::middleware('auth:api')->resource('/customer','CustomerController');
+Route::middleware('auth:api')->resource('/plan','PlanController');
+Route::post('/subscription-activation','SubscriptionController@sendActivationEmail');

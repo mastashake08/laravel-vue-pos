@@ -19,6 +19,8 @@ Vue.component('charge-component', require('./components/ChargeComponent.vue'));
 Vue.component('invoice-component',require('./components/InvoiceComponent.vue'));
 Vue.component('invoice-pay-component',require('./components/InvoicePayComponent.vue'));
 Vue.component('customers-component',require('./components/CustomersComponent.vue'));
+Vue.component('plans-component',require('./components/PlansComponent.vue'));
+Vue.component('subscription-pay-component',require('./components/SubscriptionPayComponent.vue'));
 const app = new Vue({
     el: '#app'
 });
