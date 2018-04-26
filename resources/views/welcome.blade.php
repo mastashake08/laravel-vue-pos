@@ -22,7 +22,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Jyrone Parker</h1>
+						<h1>Parker POS</h1>
 						<p>Never Let Limited Minds Limit Your Success</p>
 						<nav>
 							<ul>
