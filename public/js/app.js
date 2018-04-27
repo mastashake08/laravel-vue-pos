@@ -44451,6 +44451,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44743,6 +44744,7 @@ var render = function() {
                                 expression: "plan"
                               }
                             ],
+                            staticClass: "form-control",
                             on: {
                               change: function($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -44759,17 +44761,30 @@ var render = function() {
                               }
                             }
                           },
-                          _vm._l(_vm.plans.data, function(sub) {
-                            return _c("option", { domProps: { value: sub } }, [
-                              _vm._v(
-                                " " +
-                                  _vm._s(sub.name) +
-                                  " - $" +
-                                  _vm._s(sub.amount / 100) +
-                                  " "
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", selected: "" } },
+                              [_vm._v("Select A Plan")]
+                            ),
+                            _vm._v(" "),
+                            _vm._l(_vm.plans.data, function(sub) {
+                              return _c(
+                                "option",
+                                { domProps: { value: sub } },
+                                [
+                                  _vm._v(
+                                    " " +
+                                      _vm._s(sub.name) +
+                                      " - $" +
+                                      _vm._s(sub.amount / 100) +
+                                      " "
+                                  )
+                                ]
                               )
-                            ])
-                          })
+                            })
+                          ],
+                          2
                         )
                       ])
                     : _vm._e()
