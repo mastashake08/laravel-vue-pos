@@ -6,7 +6,7 @@
                     <div class="panel-heading">Make A Invoice</div>
 
                     <div class="panel-body">
-                        Your total amount due is ${{invoice.amount / 100}}
+                        Your total amount due is ${{(invoice.amount / 100).toFixed(2)}}
                         <br>
                         {{invoice.description}}
                         <br>

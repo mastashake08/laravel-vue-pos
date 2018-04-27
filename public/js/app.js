@@ -43378,7 +43378,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _c("h2", [_vm._v("Balance: $" + _vm._s(_vm.balance))]),
+            _c("h2", [_vm._v("Balance: $" + _vm._s(_vm.balance.toFixed(2)))]),
             _vm._v(" "),
             _c("fieldset", [
               _c("div", { staticClass: "form-group" }, [
@@ -44267,7 +44267,7 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _vm._v(
               "\n                    Your total amount due is $" +
-                _vm._s(_vm.invoice.amount / 100) +
+                _vm._s((_vm.invoice.amount / 100).toFixed(2)) +
                 "\n                    "
             ),
             _c("br"),
