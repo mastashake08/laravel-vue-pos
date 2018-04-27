@@ -45496,7 +45496,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var that = this;
       this.paymentRequest.show().then(function (pay) {
         var paydata = pay;
-        axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100 }).then(function (data) {
+        axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100, note: that.note }).then(function (data) {
           alert('Payment Sent!');
           console.log(paydata);
           return pay.complete();

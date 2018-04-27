@@ -181,6 +181,7 @@ class InvoiceController extends Controller
           "amount" => $request->amount,
           "currency" => "usd",
           "source" => $token,
+          "description" => $request->note
         ));
 
         return response()->json([
