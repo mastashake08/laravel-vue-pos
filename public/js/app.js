@@ -1102,6 +1102,7 @@ Vue.component('invoice-pay-component', __webpack_require__(45));
 Vue.component('customers-component', __webpack_require__(48));
 Vue.component('plans-component', __webpack_require__(51));
 Vue.component('subscription-pay-component', __webpack_require__(54));
+Vue.component('send-pay-component', __webpack_require__(68));
 var app = new Vue({
   el: '#app'
 });
@@ -44267,7 +44268,7 @@ var render = function() {
           _c("div", { staticClass: "panel-body" }, [
             _vm._v(
               "\n                    Your total amount due is $" +
-                _vm._s((_vm.invoice.amount / 100).toFixed(2)) +
+                _vm._s(_vm.invoice.amount / 100) +
                 "\n                    "
             ),
             _c("br"),
@@ -45368,6 +45369,215 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(69)
+/* template */
+var __vue_template__ = __webpack_require__(70)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SendPayComponent.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-d690d6d8", Component.options)
+  } else {
+    hotAPI.reload("data-v-d690d6d8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 69 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      amount: null,
+      paymentRequest: null
+    };
+  },
+  created: function created() {
+    this.user = JSON.parse(this.user);
+  },
+
+  methods: {
+    sendMoney: function sendMoney() {
+      var supportedPaymentMethods = [{
+        supportedMethods: 'basic-card'
+      }];
+      var paymentDetails = {
+        total: {
+          label: this.note,
+          amount: {
+            currency: 'USD',
+            value: this.amount
+          }
+        }
+      };
+      // Options isn't required.
+      var options = {};
+
+      this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
+      var that = this;
+      this.paymentRequest.show().then(function (pay) {
+        var paydata = pay;
+        axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100 }).then(function (data) {
+          alert('Payment Sent!');
+          console.log(paydata);
+          return pay.complete();
+        });
+      }).catch(function (pay) {
+        return pay.complete();
+      });
+    }
+  },
+  props: ['user']
+});
+
+/***/ }),
+/* 70 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-8 col-md-offset-2" }, [
+        _c("div", { staticClass: "panel panel-default" }, [
+          _c("div", { staticClass: "panel-heading" }, [
+            _vm._v("Send Money To " + _vm._s(_vm.user.name))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "panel-body" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.amount,
+                    expression: "amount"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  min: "1.00",
+                  max: "2000.00",
+                  placeholder: "Amount To Send"
+                },
+                domProps: { value: _vm.amount },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.amount = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  on: {
+                    click: function($event) {
+                      _vm.sendMoney()
+                    }
+                  }
+                },
+                [_vm._v("Pay")]
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d690d6d8", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

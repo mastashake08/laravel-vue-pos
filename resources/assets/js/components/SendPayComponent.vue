@@ -3,14 +3,15 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Make A Invoice</div>
+                    <div class="panel-heading">Send Money To {{user.name}}</div>
 
                     <div class="panel-body">
-                        Your total amount due is ${{invoice.amount / 100}}
-                        <br>
-                        {{invoice.description}}
-                        <br>
-                        <button v-on:click="payInvoice()" class="btn btn-primary">Pay</button>
+                        <div class="form-group">
+                          <input class="form-control" type="number" min="1.00" max="2000.00" placeholder="Amount To Send" v-model="amount">
+                        </div>
+                        <div class="form-group">
+                          <button v-on:click="sendMoney()" class="btn btn-primary">Pay</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -25,15 +26,15 @@
         },
         data(){
         return{
-          invoice: null,
-          paymentRequest: null
+          amount: null,
+          paymentRequest:null
         }
         },
         created(){
-          this.invoice = JSON.parse(this.invoiceObject);
+          this.user= JSON.parse(this.user);
         },
         methods: {
-        payInvoice: function(){
+        sendMoney: function(){
           const supportedPaymentMethods = [
             {
               supportedMethods: 'basic-card',
@@ -41,10 +42,10 @@
           ];
           const paymentDetails = {
             total: {
-              label: this.invoice.description,
+              label: this.note,
               amount:{
                 currency: 'USD',
-                value: this.invoice.amount/100
+                value: this.amount
               }
             }
           };
@@ -59,8 +60,8 @@
           var that = this;
           this.paymentRequest.show().then(pay => {
           var paydata = pay
-            axios.post('/api/invoice/pay/'+that.invoice.id,pay).then(data => {
-              alert('Success');
+            axios.post('/api/send-payment/'+that.user.id,{pay:pay,amount:that.amount*100}).then(data => {
+              alert('Payment Sent!');
               console.log(paydata);
               return pay.complete();
             })
@@ -70,7 +71,7 @@
 
         },
       },
-      props: ['invoiceObject']
+      props: ['user']
         }
 
 </script>

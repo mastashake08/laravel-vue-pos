@@ -21,6 +21,7 @@ Vue.component('invoice-pay-component',require('./components/InvoicePayComponent.
 Vue.component('customers-component',require('./components/CustomersComponent.vue'));
 Vue.component('plans-component',require('./components/PlansComponent.vue'));
 Vue.component('subscription-pay-component',require('./components/SubscriptionPayComponent.vue'));
+Vue.component('send-pay-component',require('./components/SendPayComponent.vue'));
 const app = new Vue({
     el: '#app'
 });
