@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+
         $this->middleware('auth');
     }
 
@@ -24,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         $balance = \Stripe\Balance::retrieve();
 
         $with = [

@@ -8,7 +8,7 @@ class PlanController extends Controller
 {
 
     public function __construct(){
-      \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+
     }
     /**
      * Display a listing of the resource.
@@ -40,6 +40,7 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         //
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         return \Stripe\Plan::create(array(
           "amount" => $request->input('plan.amount') * 100,
           "interval" => $request->input('plan.interval'),

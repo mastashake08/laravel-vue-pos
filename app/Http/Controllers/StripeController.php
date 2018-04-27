@@ -8,10 +8,11 @@ class StripeController extends Controller
 {
     //
     public function __construct(){
-      \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+
     }
 
     public function charge(Request $request){
+      \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
       try {
         // Use Stripe's library to make requests...
         $token = \Stripe\Token::create(array(

@@ -9,7 +9,7 @@ class CustomerController extends Controller
 
 
     public function __construct(){
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET' ));
+
     }
     /**
      * Display a listing of the resource.
@@ -19,6 +19,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
+          \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         return \Stripe\Customer::all(['limit' => 25]);
     }
 
@@ -41,6 +42,7 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         //
+          \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         return \Stripe\Customer::create(array(
                 "description" => $request->input('customer.name'),
                 "email" => $request->input('customer.email')
@@ -90,6 +92,7 @@ class CustomerController extends Controller
     public function destroy($id)
     {
         //
+          \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         $cu = \Stripe\Customer::retrieve($id);
         $cu->delete();
         return response()->json([

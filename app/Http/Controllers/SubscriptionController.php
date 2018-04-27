@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 class SubscriptionController extends Controller
 {
   public function __construct(){
-    \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+
   }
   /**
    * Display a listing of the resource.
@@ -18,6 +18,7 @@ class SubscriptionController extends Controller
   public function index()
   {
       //
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
       return \Stripe\Subscription::all();
   }
 
@@ -40,6 +41,7 @@ class SubscriptionController extends Controller
   public function store(Request $request)
   {
       //
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
       $token = \Stripe\Token::create(array(
         "card" => array(
           "number" => $request->pay['details']['cardNumber'],
