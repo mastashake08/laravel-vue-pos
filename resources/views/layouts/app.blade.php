@@ -20,14 +20,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:url" content="{{url()}}">
+    <meta name="twitter:url" content="{{url()->current()}}">
     <meta name="twitter:title" content="Parker POS">
     <meta name="twitter:description" content=@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")>
     <meta name="twitter:image" content=@yield('image',url('/images/icons/icon-512x512.png'))>
     <!-- Facebook OG -->
     <meta property="og:title" content="Parker POS" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{url()}}" />
+    <meta property="og:url" content="{{url()->current()}}" />
     <meta property="og:image" content=@yield('image',url('/images/icons/icon-512x512.png')) />
     <meta name="og:description" content=@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")>
 
