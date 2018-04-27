@@ -8,7 +8,7 @@ class StripeController extends Controller
 {
     //
     public function __construct(){
-      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+      \Stripe\Stripe::setApiKeyauth()->user()->secret_key);
     }
 
     public function charge(Request $request){

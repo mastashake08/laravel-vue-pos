@@ -39,6 +39,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('secret_key') ? ' has-error' : '' }}">
+                            <label for="secret_key" class="col-md-4 control-label">Stripe Secret Key</label>
+
+                            <div class="col-md-6">
+                                <input id="secret_key" type="text" class="form-control" name="secret_key" value="{{ old('secret_key') }}" required>
+
+                                @if ($errors->has('secret_key'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('secret_key') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

@@ -8,7 +8,7 @@ class PlanController extends Controller
 {
 
     public function __construct(){
-      \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+      \Stripe\Stripe::setApiKeyauth()->user()->secret_key);
     }
     /**
      * Display a listing of the resource.
