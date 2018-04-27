@@ -127,8 +127,8 @@
       },
       deleteCustomer:function(index){
         var that = this;
-        axios.delete('/api/customer/'+this.customers[index].id).then(function(data){
-          that.customers.splice(index,1);
+        axios.delete('/api/customer/'+this.customers.data[index].id).then(function(data){
+          that.customers.data.splice(index,1);
         });
       },
       createInvoice:function(customer){
