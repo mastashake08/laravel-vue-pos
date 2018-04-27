@@ -17,7 +17,9 @@ class PlanController extends Controller
      */
     public function index()
     {
+
         //
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         return \Stripe\Plan::all();
     }
 

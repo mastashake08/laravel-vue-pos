@@ -44546,7 +44546,7 @@ var render = function() {
                           _vm._v(" "),
                           _c("th", [_vm._v("Email")]),
                           _vm._v(" "),
-                          _c("th", [_vm._v("Actions>")])
+                          _c("th", [_vm._v("Actions")])
                         ])
                       ]),
                       _vm._v(" "),
