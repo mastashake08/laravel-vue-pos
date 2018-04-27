@@ -30,16 +30,14 @@
         data(){
         return{
           amount: null,
-          user: {
-            name: ''
-          },
-          note: "Payment for " + this.user.name,
+          user: {},
+          note: '',
           paymentRequest:null
         }
         },
         created(){
           this.user= JSON.parse(this.userObject);
-
+          this.note = "Payment for " + this.user.name;
         },
         methods: {
         sendMoney: function(){

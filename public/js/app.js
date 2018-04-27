@@ -45465,15 +45465,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       amount: null,
-      user: {
-        name: ''
-      },
-      note: "Payment for " + this.user.name,
+      user: {},
+      note: '',
       paymentRequest: null
     };
   },
   created: function created() {
     this.user = JSON.parse(this.userObject);
+    this.note = "Payment for " + this.user.name;
   },
 
   methods: {
