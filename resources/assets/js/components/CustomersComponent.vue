@@ -16,7 +16,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr v-for="customer in customers.data">
+                        <tr v-for="(customer,index) in customers.data">
                          <td>{{customer.description}}</td>
                          <td>{{customer.email}}</td>
                          <td>
@@ -27,7 +27,7 @@
                             <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)">Create Subscription</button>
                          </div>
                           <div class="form-group">
-                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(customer.id)">Delete Customer</button>
+                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)">Delete Customer</button>
                          </div>
                          </td>
                         </tr>
@@ -125,10 +125,10 @@
         alert(error.message);
         });
       },
-      deleteCustomer:function(id){
+      deleteCustomer:function(index){
         var that = this;
-        axios.delete('/api/customer/'+id).then(function(data){
-          alert('success');
+        axios.delete('/api/customer/'+this.customers[index].id).then(function(data){
+          that.customers.splice(index,1);
         });
       },
       createInvoice:function(customer){

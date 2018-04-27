@@ -19,7 +19,7 @@ class CustomerController extends Controller
     public function index()
     {
         //
-        return \Stripe\Customer::all();
+        return \Stripe\Customer::all(25);
     }
 
     /**

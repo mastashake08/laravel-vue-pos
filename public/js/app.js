@@ -44486,10 +44486,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         alert(error.message);
       });
     },
-    deleteCustomer: function deleteCustomer(id) {
+    deleteCustomer: function deleteCustomer(index) {
       var that = this;
-      axios.delete('/api/customer/' + id).then(function (data) {
-        alert('success');
+      axios.delete('/api/customer/' + this.customers[index].id).then(function (data) {
+        that.customers.splice(index, 1);
       });
     },
     createInvoice: function createInvoice(customer) {
@@ -44553,7 +44553,7 @@ var render = function() {
                       _vm._v(" "),
                       _c(
                         "tbody",
-                        _vm._l(_vm.customers.data, function(customer) {
+                        _vm._l(_vm.customers.data, function(customer, index) {
                           return _c("tr", [
                             _c("td", [_vm._v(_vm._s(customer.description))]),
                             _vm._v(" "),
@@ -44599,7 +44599,7 @@ var render = function() {
                                     staticClass: "btn btn-sm btn-danger",
                                     on: {
                                       click: function($event) {
-                                        _vm.deleteCustomer(customer.id)
+                                        _vm.deleteCustomer(index)
                                       }
                                     }
                                   },
