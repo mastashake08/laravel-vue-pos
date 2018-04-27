@@ -45431,7 +45431,7 @@ module.exports = Component.exports
 /* 69 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (31:6)\n\n\u001b[0m \u001b[90m 29 | \u001b[39m      amount\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 30 | \u001b[39m      note\u001b[33m:\u001b[39m \u001b[32m\"Payment for \"\u001b[39m \u001b[33m+\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39muser\u001b[33m.\u001b[39mname\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 | \u001b[39m      paymentRequest\u001b[33m:\u001b[39m\u001b[36mnull\u001b[39m\n \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 | \u001b[39m    }\n \u001b[90m 33 | \u001b[39m    }\u001b[33m,\u001b[39m\n \u001b[90m 34 | \u001b[39m    created(){\u001b[0m\n");
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (34:6)\n\n\u001b[0m \u001b[90m 32 | \u001b[39m      amount\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 33 | \u001b[39m      note\u001b[33m:\u001b[39m \u001b[32m\"Payment for \"\u001b[39m \u001b[33m+\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39muser\u001b[33m.\u001b[39mname\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 | \u001b[39m      paymentRequest\u001b[33m:\u001b[39m\u001b[36mnull\u001b[39m\n \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 | \u001b[39m    }\n \u001b[90m 36 | \u001b[39m    }\u001b[33m,\u001b[39m\n \u001b[90m 37 | \u001b[39m    created(){\u001b[0m\n");
 
 /***/ }),
 /* 70 */
@@ -45474,6 +45474,30 @@ var render = function() {
                       return
                     }
                     _vm.amount = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.note,
+                    expression: "note"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Note" },
+                domProps: { value: _vm.note },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.note = $event.target.value
                   }
                 }
               })

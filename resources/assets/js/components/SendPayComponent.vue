@@ -10,6 +10,9 @@
                           <input class="form-control" type="number" min="1.00" max="2000.00" placeholder="Amount To Send" v-model="amount">
                         </div>
                         <div class="form-group">
+                          <input class="form-control" type="text"  placeholder="Note" v-model="note">
+                        </div>
+                        <div class="form-group">
                           <button v-on:click="sendMoney()" class="btn btn-primary">Pay</button>
                         </div>
                     </div>
