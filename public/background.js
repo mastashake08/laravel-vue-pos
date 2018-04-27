@@ -1,6 +1,5 @@
 var CACHE_NAME = 'pos-cache-v1';
 var urlsToCache = [
-  '/',
   '/css/app.css',
   '/js/app.js'
 ];
