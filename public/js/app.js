@@ -44536,7 +44536,7 @@ var render = function() {
           _vm._v(" "),
           _c(
             "div",
-            { staticClass: "panel-body" },
+            { staticClass: "panel-body table-responsive" },
             [
               _c("transition", { attrs: { name: "fade" } }, [
                 _vm.ready

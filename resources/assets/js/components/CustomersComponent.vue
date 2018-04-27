@@ -5,7 +5,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Customers</div>
 
-                    <div class="panel-body">
+                    <div class="panel-body table-responsive">
                       <transition name="fade">
                       <table class="table" v-if="ready">
                         <thead>
