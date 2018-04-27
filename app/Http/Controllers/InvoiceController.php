@@ -8,7 +8,7 @@ class InvoiceController extends Controller
 {
 
   public function __construct(){
-    \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+
   }
     /**
      * Display a listing of the resource.
@@ -43,7 +43,7 @@ class InvoiceController extends Controller
     public function store(Request $request)
     {
         //
-        $invoice = Invoice::Create($request->all());
+        $invoice = $request->user()->invoices()->create($request->all());
         $invoice->notify(new \App\Notifications\InvoiceCreated());
         return response()->json([
           'invoice' => $invoice
@@ -113,6 +113,8 @@ class InvoiceController extends Controller
     function payInvoice(Request $request,$id){
       $invoice = Invoice::findOrFail($id);
       try {
+
+        \Stripe\Stripe::setApiKey($invoice->user->secret_key);
         // Use Stripe's library to make requests...
         $token = \Stripe\Token::create(array(
           "card" => array(

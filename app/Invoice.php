@@ -10,4 +10,8 @@ class Invoice extends Model
     //
     protected $fillable = ['name','amount','email','description','charge_id'];
 
+    public function user(){
+      return $this->belongsTo('App\User');
+    }
+
 }
