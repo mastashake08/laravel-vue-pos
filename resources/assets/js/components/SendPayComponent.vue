@@ -35,7 +35,7 @@
         }
         },
         created(){
-          this.user= JSON.parse(this.user);
+          this.user= JSON.parse(this.userObject);
         },
         methods: {
         sendMoney: function(){
@@ -75,7 +75,7 @@
 
         },
       },
-      props: ['user']
+      props: ['userObject']
         }
 
 </script>

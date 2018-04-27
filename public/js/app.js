@@ -45470,7 +45470,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
   created: function created() {
-    this.user = JSON.parse(this.user);
+    this.user = JSON.parse(this.userObject);
   },
 
   methods: {
@@ -45504,7 +45504,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     }
   },
-  props: ['user']
+  props: ['userObject']
 });
 
 /***/ }),
