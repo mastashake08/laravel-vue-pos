@@ -30,7 +30,9 @@
         data(){
         return{
           amount: null,
-          user: {},
+          user: {
+            name: ''
+          },
           note: "Payment for " + this.user.name,
           paymentRequest:null
         }

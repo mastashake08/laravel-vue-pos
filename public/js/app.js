@@ -45465,7 +45465,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       amount: null,
-      user: {},
+      user: {
+        name: ''
+      },
       note: "Payment for " + this.user.name,
       paymentRequest: null
     };
