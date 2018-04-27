@@ -1,4 +1,9 @@
-
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
 // Body
 $body-bg: #f5f8fa;
 
@@ -36,3 +41,4 @@ $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
 $panel-default-heading-bg: #fff;
+$panel-border-radius: 10px;
