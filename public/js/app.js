@@ -43322,43 +43322,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
-  },
-  created: function created() {
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function () {
-        navigator.serviceWorker.register('/background.js').then(function (registration) {}, function (err) {
-          // registration failed :(
-          console.log('ServiceWorker registration failed: ', err);
-        });
-      });
-    }
-  },
-  data: function data() {
-    return {
-      card: {
-        card_number: null,
-        expiry_year: null,
-        expiry_month: null,
-        cvv: null
-      },
-      amount: 0,
-      email: null,
-      description: null
-    };
-  },
+    mounted: function mounted() {
+        console.log('Component mounted.');
+    },
+    created: function created() {},
+    data: function data() {
+        return {
+            card: {
+                card_number: null,
+                expiry_year: null,
+                expiry_month: null,
+                cvv: null
+            },
+            amount: 0,
+            email: null,
+            description: null
+        };
+    },
 
-  props: ['balance'],
-  methods: {
-    createCharge: function createCharge() {
-      axios.post('/api/charge', { card: this.card, amount: this.amount, description: this.description }).then(function (data) {
-        alert('Success!');
-      }).catch(function (error) {
-        alert(error.message);
-      });
+    props: ['balance'],
+    methods: {
+        createCharge: function createCharge() {
+            axios.post('/api/charge', { card: this.card, amount: this.amount, description: this.description }).then(function (data) {
+                alert('Success!');
+            }).catch(function (error) {
+                alert(error.message);
+            });
+        }
     }
-  }
 });
 
 /***/ }),
@@ -44474,6 +44465,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     axios.get('/api/customer').then(function (data) {
       that.customers = data.data;
       that.ready = true;
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/background.js').then(function (registration) {}, function (err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
     });
   },
 

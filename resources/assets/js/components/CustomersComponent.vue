@@ -113,6 +113,16 @@
           axios.get('/api/customer').then(function(data){
             that.customers = data.data;
             that.ready = true;
+            if ('serviceWorker' in navigator) {
+              window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/background.js').then(function(registration) {
+
+                }, function(err) {
+                  // registration failed :(
+                  console.log('ServiceWorker registration failed: ', err);
+                });
+              });
+            }
           });
         },
         methods: {
