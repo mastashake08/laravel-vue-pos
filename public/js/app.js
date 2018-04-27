@@ -44762,11 +44762,9 @@ var render = function() {
                             }
                           },
                           [
-                            _c(
-                              "option",
-                              { attrs: { disabled: "", selected: "" } },
-                              [_vm._v("Select A Plan")]
-                            ),
+                            _c("option", { attrs: { selected: "" } }, [
+                              _vm._v("Select A Plan")
+                            ]),
                             _vm._v(" "),
                             _vm._l(_vm.plans.data, function(sub) {
                               return _c(

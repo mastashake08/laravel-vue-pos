@@ -73,7 +73,7 @@
         <transition name="fade">
           <div class="form-group" v-if="ready">
             <select  class="form-control" v-model="plan">
-              <option disabled selected>Select A Plan</option>
+              <option selected>Select A Plan</option>
               <option  v-for="sub in plans.data" :value="sub"> {{sub.name}} - ${{sub.amount / 100}} </option>
             </select>
           </div>
