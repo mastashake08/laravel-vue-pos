@@ -58,4 +58,11 @@ class StripeController extends Controller
         return response()->json($e->getJsonBody());
       }
     }
+    public function sendPay(Request $request, $name){
+      $user = \App\User::where('name',$name)->first();
+      $with = [
+        'user' => $user
+      ];
+      return view('send')->with($with);
+    }
 }

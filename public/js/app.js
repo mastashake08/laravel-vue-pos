@@ -44235,15 +44235,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
       var that = this;
       this.paymentRequest.show().then(function (pay) {
-        var paydata = pay;
+
         axios.post('/api/invoice/pay/' + that.invoice.id, pay).then(function (data) {
           alert('Success');
-          console.log(paydata);
-          return pay.complete();
         });
-      }).catch(function (pay) {
         return pay.complete();
-      });
+      }).catch(function (pay) {});
     }
   },
   props: ['invoiceObject']
@@ -45305,15 +45302,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
       var that = this;
       this.paymentRequest.show().then(function (pay) {
-        var paydata = pay;
+
         axios.post('/api/subscription', { pay: pay, customer: that.customer, plan: that.plan }).then(function (data) {
           alert('Success');
-          console.log(paydata);
-          return pay.complete();
         });
-      }).catch(function (pay) {
+
         return pay.complete();
-      });
+      }).catch(function (pay) {});
     }
   },
   props: ['customer', 'plan', 'amount']

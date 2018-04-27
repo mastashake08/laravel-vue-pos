@@ -33,13 +33,7 @@ class HomeController extends Controller
         return view('home')->with($with);
     }
 
-    public function sendPay(Request $request, $name){
-      $user = \App\User::where('name',$name)->first();
-      $with = [
-        'user' => $user
-      ];
-      return view('send')->with($with);
-    }
+  
 
-    
+
 }
