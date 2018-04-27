@@ -45495,12 +45495,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
       var that = this;
       this.paymentRequest.show().then(function (pay) {
-        var paydata = pay;
+        console.log(pay);
         axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100, note: that.note }).then(function (data) {
           alert('Payment Sent!');
-          console.log(paydata);
-          return paydata.complete();
         });
+        return pay.complete();
       }).catch(function (err) {
         console.log(err);
       });

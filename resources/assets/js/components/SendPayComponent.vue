@@ -65,12 +65,11 @@
           );
           var that = this;
           this.paymentRequest.show().then(pay => {
-          var paydata = pay
+            console.log(pay);
             axios.post('/api/send-payment/'+that.user.id,{pay:pay,amount:that.amount*100,note:that.note}).then(data => {
               alert('Payment Sent!');
-              console.log(paydata);
-              return paydata.complete();
-            })
+            });
+            return pay.complete();
           }).catch(err =>{
             console.log(err);
           });
