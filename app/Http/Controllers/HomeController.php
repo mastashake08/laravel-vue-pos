@@ -34,7 +34,7 @@ class HomeController extends Controller
     }
 
     public function sendPay(Request $request, $name){
-      $user = App\User::where('name',$name)->first();
+      $user = \App\User::where('name',$name)->first();
       dd($user);
     }
 }
