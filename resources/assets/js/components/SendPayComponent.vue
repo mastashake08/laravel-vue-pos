@@ -69,10 +69,10 @@
             axios.post('/api/send-payment/'+that.user.id,{pay:pay,amount:that.amount*100,note:that.note}).then(data => {
               alert('Payment Sent!');
               console.log(paydata);
-              return pay.complete();
+              return paydata.complete();
             })
-          }).catch(pay =>{
-            return pay.complete();
+          }).catch(err =>{
+            console.log(err);
           });
 
         },

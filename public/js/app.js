@@ -45499,10 +45499,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100, note: that.note }).then(function (data) {
           alert('Payment Sent!');
           console.log(paydata);
-          return pay.complete();
+          return paydata.complete();
         });
-      }).catch(function (pay) {
-        return pay.complete();
+      }).catch(function (err) {
+        console.log(err);
       });
     }
   },
