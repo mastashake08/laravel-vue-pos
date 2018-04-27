@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        \Stripe\Stripe::setApiKeyauth()->user()->secret_key);
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         $this->middleware('auth');
     }
 

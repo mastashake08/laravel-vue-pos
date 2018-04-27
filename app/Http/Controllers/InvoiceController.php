@@ -8,7 +8,7 @@ class InvoiceController extends Controller
 {
 
   public function __construct(){
-    \Stripe\Stripe::setApiKeyauth()->user()->secret_key);
+    \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
   }
     /**
      * Display a listing of the resource.
