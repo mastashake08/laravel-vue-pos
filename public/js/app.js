@@ -45429,9 +45429,83 @@ module.exports = Component.exports
 
 /***/ }),
 /* 69 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (34:6)\n\n\u001b[0m \u001b[90m 32 | \u001b[39m      amount\u001b[33m:\u001b[39m \u001b[36mnull\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 33 | \u001b[39m      note\u001b[33m:\u001b[39m \u001b[32m\"Payment for \"\u001b[39m \u001b[33m+\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39muser\u001b[33m.\u001b[39mname\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 | \u001b[39m      paymentRequest\u001b[33m:\u001b[39m\u001b[36mnull\u001b[39m\n \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 | \u001b[39m    }\n \u001b[90m 36 | \u001b[39m    }\u001b[33m,\u001b[39m\n \u001b[90m 37 | \u001b[39m    created(){\u001b[0m\n");
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {
+    console.log('Component mounted.');
+  },
+  data: function data() {
+    return {
+      amount: null,
+      note: "Payment for " + this.user.name,
+      paymentRequest: null
+    };
+  },
+  created: function created() {
+    this.user = JSON.parse(this.user);
+  },
+
+  methods: {
+    sendMoney: function sendMoney() {
+      var supportedPaymentMethods = [{
+        supportedMethods: 'basic-card'
+      }];
+      var paymentDetails = {
+        total: {
+          label: this.note,
+          amount: {
+            currency: 'USD',
+            value: this.amount
+          }
+        }
+      };
+      // Options isn't required.
+      var options = {};
+
+      this.paymentRequest = new PaymentRequest(supportedPaymentMethods, paymentDetails, options);
+      var that = this;
+      this.paymentRequest.show().then(function (pay) {
+        var paydata = pay;
+        axios.post('/api/send-payment/' + that.user.id, { pay: pay, amount: that.amount * 100 }).then(function (data) {
+          alert('Payment Sent!');
+          console.log(paydata);
+          return pay.complete();
+        });
+      }).catch(function (pay) {
+        return pay.complete();
+      });
+    }
+  },
+  props: ['user']
+});
 
 /***/ }),
 /* 70 */
