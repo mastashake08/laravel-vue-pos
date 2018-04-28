@@ -6,7 +6,7 @@
                     <div class="panel-heading">Make A Charge</div>
 
                     <div class="panel-body">
-                      <h2>Balance: ${{balance.toFixed(2)}}</h2>
+                      <h2>Balance: ${{parseFloat(balance).toFixed(2)}}</h2>
                         <fieldset>
                         <div class="form-group">
                         <label class="col-sm-3 control-label" for="amount">Amount</label>
