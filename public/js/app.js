@@ -43379,9 +43379,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _c("h2", [
-              _vm._v("Balance: $" + _vm._s(parseFloat(_vm.balance).toFixed(2)))
-            ]),
+            _c("h2", [_vm._v("Balance: $" + _vm._s(_vm.balance))]),
             _vm._v(" "),
             _c("fieldset", [
               _c("div", { staticClass: "form-group" }, [
