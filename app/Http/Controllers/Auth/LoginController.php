@@ -56,7 +56,7 @@ class LoginController extends Controller
         $user = Socialite::driver('stripe')->user();
         dd([
           'user' => $user,
-          'token' =$user->token,
+          'token' => $user->token,
           'name' => $user->getName(),
           'email'=> $user->getEmail()]);
         $user = \App\User::firstOrCreate(['secret_key' => $user->token, 'name' => $user->getName(), 'email' => $user->getEmail()]);
