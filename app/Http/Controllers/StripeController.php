@@ -68,8 +68,8 @@ class StripeController extends Controller
     }
 
     public function webhook(Request $request){
-      Log::info('Request: '. $request->data['object']['account']);
-      $user = \App\User::where('stripe_account_id',$request->data['object']['account'])->first();
+      Log::info('Request: '. $request->account);
+      $user = \App\User::where('stripe_account_id',$request->account)->first();
       $user->notify(\App\Notifications\StripeEvent($request->all()));
     }
 }
