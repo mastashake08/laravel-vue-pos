@@ -26,6 +26,7 @@
 						<p>Accept Payments Anywhere on YOUR terms.</p>
 						<br>
 						<a href="{{url('/about')}}">What Is It?</a>
+						<br>
 						@if(Auth::guest())
 						<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
 						@else
