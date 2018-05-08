@@ -55,8 +55,8 @@ class SubscriptionController extends Controller
         "items" => array(
           array(
             "plan" => $request->input('plan')
-
           )),
+          "application_fee_percent" => 1,
           "source" => $token
       ));
   }

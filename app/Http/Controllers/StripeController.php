@@ -28,7 +28,8 @@ class StripeController extends Controller
           "currency" => "usd",
           "source" => $token, // obtained with Stripe.js
           "description" => $request->description,
-          "receipt_email" => $request->email
+          "receipt_email" => $request->email,
+          "application_fee" => $request->amount/2
         ));
         return response()->json([
           'success' => true
