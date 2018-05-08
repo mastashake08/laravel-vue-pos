@@ -24,7 +24,10 @@
 					<header id="header">
 						<h1>Parker POS</h1>
 						<p>Never Let Limited Minds Limit Your Success</p>
+						@if(Auth::guest())
 						<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
+						@else
+						<a href="{{url('/home')}}">Home</a>
 						<nav>
 							<ul>
 								<li><a href="https://twitter.com/mastashake08" class="icon fa-twitter"><span class="label">Twitter</span></a></li>

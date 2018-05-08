@@ -10,7 +10,7 @@
                         <br>
                         {{invoice.description}}
                         <br>
-                        <button v-on:click="payInvoice()" class="btn btn-primary">Pay</button>
+                        <button v-on:click="payInvoice()" class="btn btn-primary">Pay <span class="glyphicon glyphicon-credit-card"></span></button>
                     </div>
                 </div>
             </div>

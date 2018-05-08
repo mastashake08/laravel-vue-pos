@@ -58,7 +58,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        <li><a href="{{url('/home')}}">Home <span class="glyphicon glyphicon-home"></span></a<</li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

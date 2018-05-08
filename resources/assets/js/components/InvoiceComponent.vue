@@ -34,7 +34,7 @@
 
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="button" class="btn btn-success" v-on:click="createInvoice">Create Invoice</button>
+                          <button type="button" class="btn btn-success" v-on:click="createInvoice">Send Invoice <span class="glyphicon glyphicon-send"></span></button>
                         </div>
                       </div>
                         </fieldset>

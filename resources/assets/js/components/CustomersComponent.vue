@@ -46,7 +46,7 @@
 
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="button" class="btn btn-success" v-on:click="createCustomer">Create New Customer</button>
+                          <button type="button" class="btn btn-success" v-on:click="createCustomer">Create New Customer <span class="glyphicon glyphicon-user"></span></button>
                         </div>
                       </div>
                         </fieldset>

@@ -32,7 +32,7 @@
                       </div>
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="button" class="btn btn-success" v-on:click="createPlan">Create Plan</button>
+                          <button type="button" class="btn btn-success" v-on:click="createPlan">Create Plan <span class="glyphicon glyphicon-calendar"></span></button>
                         </div>
                       </div>
                         </fieldset>

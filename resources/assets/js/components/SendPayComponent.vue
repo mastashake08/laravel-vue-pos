@@ -13,7 +13,7 @@
                           <input class="form-control" type="text"  placeholder="Note" v-model="note">
                         </div>
                         <div class="form-group">
-                          <button v-on:click="sendMoney()" class="btn btn-primary">Pay</button>
+                          <button v-on:click="sendMoney()" class="btn btn-primary">Pay <span class="glyphicon glyphicon-card"></span></button>
                         </div>
                     </div>
                 </div>

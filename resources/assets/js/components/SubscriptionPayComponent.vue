@@ -7,7 +7,7 @@
 
                     <div class="panel-body">
 
-                        <button v-on:click="activateSubscription()" class="btn btn-primary">Pay</button>
+                        <button v-on:click="activateSubscription()" class="btn btn-primary">Pay <span class="glyphicon glyphicon-card"></span></button>
                     </div>
                 </div>
             </div>
@@ -60,7 +60,7 @@
 
             return pay.complete();
           }).catch(pay =>{
-          
+
           });
 
         },

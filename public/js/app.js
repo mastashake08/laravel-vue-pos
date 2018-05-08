@@ -43766,7 +43766,10 @@ var render = function() {
                       attrs: { type: "button" },
                       on: { click: _vm.createCharge }
                     },
-                    [_vm._v("Charge")]
+                    [
+                      _vm._v("Charge "),
+                      _c("span", { staticClass: "glyphicon glyphicon-card" })
+                    ]
                   )
                 ])
               ])
@@ -44106,7 +44109,10 @@ var render = function() {
                       attrs: { type: "button" },
                       on: { click: _vm.createInvoice }
                     },
-                    [_vm._v("Create Invoice")]
+                    [
+                      _vm._v("Send Invoice "),
+                      _c("span", { staticClass: "glyphicon glyphicon-send" })
+                    ]
                   )
                 ])
               ])
@@ -44286,7 +44292,10 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Pay")]
+              [
+                _vm._v("Pay "),
+                _c("span", { staticClass: "glyphicon glyphicon-credit-card" })
+              ]
             )
           ])
         ])
@@ -44721,7 +44730,10 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.createCustomer }
                       },
-                      [_vm._v("Create New Customer")]
+                      [
+                        _vm._v("Create New Customer "),
+                        _c("span", { staticClass: "glyphicon glyphicon-user" })
+                      ]
                     )
                   ])
                 ])
@@ -45183,7 +45195,12 @@ var render = function() {
                         attrs: { type: "button" },
                         on: { click: _vm.createPlan }
                       },
-                      [_vm._v("Create Plan")]
+                      [
+                        _vm._v("Create Plan "),
+                        _c("span", {
+                          staticClass: "glyphicon glyphicon-calendar"
+                        })
+                      ]
                     )
                   ])
                 ])
@@ -45361,7 +45378,10 @@ var render = function() {
                   }
                 }
               },
-              [_vm._v("Pay")]
+              [
+                _vm._v("Pay "),
+                _c("span", { staticClass: "glyphicon glyphicon-card" })
+              ]
             )
           ])
         ])
@@ -45588,7 +45608,10 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Pay")]
+                [
+                  _vm._v("Pay "),
+                  _c("span", { staticClass: "glyphicon glyphicon-card" })
+                ]
               )
             ])
           ])
