@@ -61,7 +61,7 @@ class LoginController extends Controller
 
         $user->fill([
           'secret_key' => $socialite->token,
-          'tag' => str_slug($socialite->user['business_name'],'_')
+          'tag' => snake_case($socialite->user['business_name'])
         ]);
         $user->save();
         auth()->login($user);
