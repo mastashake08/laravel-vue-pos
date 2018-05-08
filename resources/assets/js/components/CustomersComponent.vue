@@ -24,10 +24,10 @@
                              <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">Create Invoice <span class="glyphicon glyphicon-envelope"></span></button>
                           </div>
                           <div class="form-group" v-if="customer.subscriptions.data.length < 1">
-                            <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)">Create Subscription</button>
+                            <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)">Create Subscription <span class="glyphicon glyphicon-retweet"></span></button>
                          </div>
                           <div class="form-group">
-                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)">Delete Customer</button>
+                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)">Delete Customer <span class="glyphicon glyphicon-remove-circle"></span></button>
                          </div>
                          </td>
                         </tr>

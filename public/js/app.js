@@ -44592,7 +44592,13 @@ var render = function() {
                                           }
                                         }
                                       },
-                                      [_vm._v("Create Subscription")]
+                                      [
+                                        _vm._v("Create Subscription "),
+                                        _c("span", {
+                                          staticClass:
+                                            "glyphicon glyphicon-retweet"
+                                        })
+                                      ]
                                     )
                                   ])
                                 : _vm._e(),
@@ -44608,7 +44614,13 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("Delete Customer")]
+                                  [
+                                    _vm._v("Delete Customer "),
+                                    _c("span", {
+                                      staticClass:
+                                        "glyphicon glyphicon-remove-circle"
+                                    })
+                                  ]
                                 )
                               ])
                             ])
