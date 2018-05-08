@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Socialite;
 class LoginController extends Controller
 {
     /*
@@ -35,5 +35,30 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+    /**
+     * Redirect the user to the Stripe authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('Stripe')->redirect();
+    }
+
+    /**
+     * Obtain the user information from Stripe.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('Stripe')->user();
+        dd($user);
+        $user = \App\User::firstOrCreate(['secret_key' => $user->token]);
+        auth()->login($user);
+        return redirect('/home');
+
+        // $user->token;
     }
 }

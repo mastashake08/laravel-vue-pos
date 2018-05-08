@@ -10,7 +10,9 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/passport": "^4.0",
+        "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "socialiteproviders/stripe": "^3.0",
         "stripe/stripe-php": "^5.6"
     },
     "require-dev": {

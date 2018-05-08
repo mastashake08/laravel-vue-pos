@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/invoice/pay/{id}','InvoiceController@getPayInvoice');
 Route::get('/subscription-activate','SubscriptionController@showActivation');
 Route::get('/${name}','StripeController@sendPay');
+Route::get('login/stripe', 'Auth\LoginController@redirectToProvider');
+Route::get('login/stripe/callback', 'Auth\LoginController@handleProviderCallback');
