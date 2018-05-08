@@ -28,6 +28,7 @@
 						<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
 						@else
 						<a href="{{url('/home')}}">Home</a>
+						@endif
 						<nav>
 							<ul>
 								<li><a href="https://twitter.com/mastashake08" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
