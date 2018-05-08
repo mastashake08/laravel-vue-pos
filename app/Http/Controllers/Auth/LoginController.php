@@ -54,11 +54,12 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $socialite = Socialite::driver('stripe')->user();
+        dd($socialite);
         $user = \App\User::firstOrCreate([
           'secret_key' => $socialite->token,
           'name' => $socialite->user['business_name'],
           'email'=> $socialite->getEmail()]);
-        auth()->login($socialite);
+        auth()->login($user);
         return redirect('/home');
 
         // $socialite->token;
