@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 class StripeController extends Controller
 {
     //
@@ -68,6 +68,7 @@ class StripeController extends Controller
     }
 
     public function webhook(Request $request){
+      Log::info('Stripe Account ID: '. $request->account);
       $user = \App\User::where('stripe_account_id',$request->account)->first();
       $user->notify(\App\Notifications\StripeEvent($request->all()));
     }
