@@ -44469,6 +44469,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
   created: function created() {
+    $('[data-toggle="tooltip"]').tooltip();
     var that = this;
     axios.get('/api/customer').then(function (data) {
       that.customers = data.data;
@@ -44571,10 +44572,13 @@ var render = function() {
                                     }
                                   },
                                   [
-                                    _vm._v("Create Invoice "),
                                     _c("span", {
                                       staticClass:
-                                        "glyphicon glyphicon-envelope"
+                                        "glyphicon glyphicon-envelope",
+                                      attrs: {
+                                        "data-toggle": "tooltip",
+                                        title: "Send Invoice"
+                                      }
                                     })
                                   ]
                                 )
@@ -44593,10 +44597,13 @@ var render = function() {
                                         }
                                       },
                                       [
-                                        _vm._v("Create Subscription "),
                                         _c("span", {
                                           staticClass:
-                                            "glyphicon glyphicon-retweet"
+                                            "glyphicon glyphicon-retweet",
+                                          attrs: {
+                                            "data-toggle": "tooltip",
+                                            title: "Create Subscription"
+                                          }
                                         })
                                       ]
                                     )
@@ -44615,10 +44622,13 @@ var render = function() {
                                     }
                                   },
                                   [
-                                    _vm._v("Delete Customer "),
                                     _c("span", {
                                       staticClass:
-                                        "glyphicon glyphicon-remove-circle"
+                                        "glyphicon glyphicon-remove-circle",
+                                      attrs: {
+                                        "data-toggle": "tooltip",
+                                        title: "Delete Customer"
+                                      }
                                     })
                                   ]
                                 )

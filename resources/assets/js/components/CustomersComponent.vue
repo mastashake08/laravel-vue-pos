@@ -21,13 +21,13 @@
                          <td>{{customer.email}}</td>
                          <td>
                            <div class="form-group">
-                             <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">Create Invoice <span class="glyphicon glyphicon-envelope"></span></button>
+                             <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">  <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="Send Invoice"></span></button>
                           </div>
                           <div class="form-group" v-if="customer.subscriptions.data.length < 1">
-                            <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)">Create Subscription <span class="glyphicon glyphicon-retweet"></span></button>
+                            <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)"> <span class="glyphicon glyphicon-retweet" data-toggle="tooltip" title="Create Subscription"></span></button>
                          </div>
                           <div class="form-group">
-                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)">Delete Customer <span class="glyphicon glyphicon-remove-circle"></span></button>
+                            <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)"> <span class="glyphicon glyphicon-remove-circle" data-toggle="tooltip" title="Delete Customer"></span></button>
                          </div>
                          </td>
                         </tr>
@@ -110,6 +110,7 @@
           }
           },
         created(){
+           $('[data-toggle="tooltip"]').tooltip();
           var that = this;
           axios.get('/api/customer').then(function(data){
             that.customers = data.data;
