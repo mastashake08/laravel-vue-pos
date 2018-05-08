@@ -61,7 +61,6 @@ class StripeController extends Controller
     }
     public function sendPay(Request $request, $name){
       $user = \App\User::where('tag',$name)->first();
-      dd($user);
       $with = [
         'user' => $user
       ];
