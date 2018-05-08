@@ -57,7 +57,7 @@ class LoginController extends Controller
         dd([
           'user' => $user,
           'token' => $user->token,
-          'name' => $user->getName(),
+          'name' => $user->user['business_name'],
           'email'=> $user->getEmail()]);
         $user = \App\User::firstOrCreate(['secret_key' => $user->token, 'name' => $user->getName(), 'email' => $user->getEmail()]);
         auth()->login($user);
