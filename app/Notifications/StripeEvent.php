@@ -45,7 +45,7 @@ class StripeEvent extends Notification
         return (new MailMessage)
                     ->subject('You Have A New Stripe Event')
                     ->line('Check Out This New Event')
-                    ->line($this->event['type'])
+                    ->line($this->event)
                     ->action('Dashboard', url('/home'))
                     ->line('Thank you for using our application!');
     }
