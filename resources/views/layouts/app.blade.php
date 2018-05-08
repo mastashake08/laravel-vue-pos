@@ -60,6 +60,9 @@
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/home')}}">Home <span class="glyphicon glyphicon-home"></span></a></li>
                         <li><a href="{{url('/about')}}">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                        <li><a href="{{url('/pricing')}}">Pricing <span class="glyphicon  glyphicon-usd"></span></a></li>
+                        <li><a href="{{url('/stripe-tos')}}">Terms Of Service <span class="glyphicon  glyphicon-th-list"></span></a></li>
+
 
                     </ul>
 

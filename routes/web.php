@@ -26,3 +26,9 @@ Route::get('login/stripe/callback', 'Auth\LoginController@handleProviderCallback
 Route::get('/about',function(){
   return view('about');
 });
+Route::get('/pricing',function(){
+  return view('price');
+});
+Route::get('/stripe-tos',function(){
+  return view('stripe');
+});
