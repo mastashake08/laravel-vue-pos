@@ -24,7 +24,7 @@
 					<header id="header">
 						<h1>Parker POS</h1>
 						<p>Never Let Limited Minds Limit Your Success</p>
-						<a href="{{url('/login/stripe')}}">Login With Stripe</a>
+						<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
 						<nav>
 							<ul>
 								<li><a href="https://twitter.com/mastashake08" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
