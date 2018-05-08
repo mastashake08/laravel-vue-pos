@@ -1072,7 +1072,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(11);
-module.exports = __webpack_require__(57);
+module.exports = __webpack_require__(60);
 
 
 /***/ }),
@@ -1102,7 +1102,7 @@ Vue.component('invoice-pay-component', __webpack_require__(45));
 Vue.component('customers-component', __webpack_require__(48));
 Vue.component('plans-component', __webpack_require__(51));
 Vue.component('subscription-pay-component', __webpack_require__(54));
-Vue.component('send-pay-component', __webpack_require__(68));
+Vue.component('send-pay-component', __webpack_require__(57));
 var app = new Vue({
   el: '#app'
 });
@@ -44570,7 +44570,13 @@ var render = function() {
                                       }
                                     }
                                   },
-                                  [_vm._v("Create Invoice")]
+                                  [
+                                    _vm._v("Create Invoice "),
+                                    _c("span", {
+                                      staticClass:
+                                        "glyphicon glyphicon-envelope"
+                                    })
+                                  ]
                                 )
                               ]),
                               _vm._v(" "),
@@ -45361,30 +45367,14 @@ if (false) {
 
 /***/ }),
 /* 57 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(69)
+var __vue_script__ = __webpack_require__(58)
 /* template */
-var __vue_template__ = __webpack_require__(70)
+var __vue_template__ = __webpack_require__(59)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -45423,7 +45413,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 69 */
+/* 58 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45504,7 +45494,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 70 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45602,6 +45592,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-d690d6d8", module.exports)
   }
 }
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

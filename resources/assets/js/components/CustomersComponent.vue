@@ -21,7 +21,7 @@
                          <td>{{customer.email}}</td>
                          <td>
                            <div class="form-group">
-                             <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">Create Invoice</button>
+                             <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">Create Invoice <span class="glyphicon glyphicon-envelope"></span></button>
                           </div>
                           <div class="form-group" v-if="customer.subscriptions.data.length < 1">
                             <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)">Create Subscription</button>
