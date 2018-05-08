@@ -43768,7 +43768,9 @@ var render = function() {
                     },
                     [
                       _vm._v("Charge "),
-                      _c("span", { staticClass: "glyphicon glyphicon-card" })
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-credit-card"
+                      })
                     ]
                   )
                 ])
@@ -45610,7 +45612,7 @@ var render = function() {
                 },
                 [
                   _vm._v("Pay "),
-                  _c("span", { staticClass: "glyphicon glyphicon-card" })
+                  _c("span", { staticClass: "glyphicon glyphicon-credit-card" })
                 ]
               )
             ])

@@ -76,7 +76,7 @@
 
                       <div class="form-group">
                         <div class="col-sm-offset-3 col-sm-9">
-                          <button type="button" class="btn btn-success" v-on:click="createCharge">Charge <span class="glyphicon glyphicon-card"></span></button>
+                          <button type="button" class="btn btn-success" v-on:click="createCharge">Charge <span class="glyphicon glyphicon-credit-card"></span></button>
                         </div>
                       </div>
                         </fieldset>
