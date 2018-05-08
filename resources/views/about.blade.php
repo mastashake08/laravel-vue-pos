@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     Parker POS is a an open source <a href="https://stripe.com">Stripe Powered</a> point of sales web application that does more than just take credit cards!
-                    With Parker POS you can create/send invoices, manage your subscription plans as well as your customers. Why spend money on a physical terminal when you can use a
+                    With Parker POS you can create/send invoices, manage your subscription plans as well as your customers and have people send you money with your POS tag. Why spend money on a physical terminal when you can use a
                     free application that gets free updates and functionality for life? By utilizing the power of Stripe you can rest assured with state of the art fraud detection, access to over 140 currencies and above par analytics.
                     Future updates to Parker POS will include the following:
                     <ul>
