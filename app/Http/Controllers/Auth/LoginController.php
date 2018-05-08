@@ -60,7 +60,8 @@ class LoginController extends Controller
         ]);
 
         $user->fill([
-          'secret_key' => $socialite->token
+          'secret_key' => $socialite->token,
+          'tag' => str_slug($socialite->user['business_name'],'_')
         ]);
         $user->save();
         auth()->login($user);
