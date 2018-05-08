@@ -23,7 +23,9 @@
 				<!-- Header -->
 					<header id="header">
 						<h1>Parker POS</h1>
-						<p>Never Let Limited Minds Limit Your Success</p>
+						<p>Accept Payments Anywhere on YOUR terms.</p>
+						<br>
+						<a href="{{url('/about')}}">What Is It?</a>
 						@if(Auth::guest())
 						<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
 						@else

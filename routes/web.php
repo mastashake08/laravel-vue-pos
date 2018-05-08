@@ -23,3 +23,6 @@ Route::get('/subscription-activate','SubscriptionController@showActivation');
 Route::get('/${name}','StripeController@sendPay');
 Route::get('login/stripe', 'Auth\LoginController@redirectToProvider');
 Route::get('login/stripe/callback', 'Auth\LoginController@handleProviderCallback');
+Route::get('/about',function(){
+  return view('about');
+});
