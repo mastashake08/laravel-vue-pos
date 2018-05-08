@@ -79,6 +79,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu">
+                                  <li><a href="{{url('/$'.Auth::user()->tag)}}" target="_blank">Your POS Tag</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
