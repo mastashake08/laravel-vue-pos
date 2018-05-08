@@ -59,7 +59,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{url('/home')}}">Home <span class="glyphicon glyphicon-home"></span></a></li>
-                        <li><a href="{{url('/about')}}">Home <span class="glyphicon glyphicon-info-sign"></span></a></li>
+                        <li><a href="{{url('/about')}}">About <span class="glyphicon glyphicon-info-sign"></span></a></li>
 
                     </ul>
 

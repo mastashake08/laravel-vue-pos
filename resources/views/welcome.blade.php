@@ -13,6 +13,26 @@
 		<link rel="stylesheet" href="themes/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="themes/assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="themes/assets/css/ie9.css" /><![endif]-->
+		<link rel="manifest" href="manifest.json">
+
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="msapplication-starturl" content="/">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:url" content="{{url()->current()}}">
+		<meta name="twitter:title" content="@yield('title','Parker POS')">
+		<meta name="twitter:description" content="@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")">
+		<meta name="twitter:image" content="@yield('image',url('/images/icons/icon-384x384.png'))">
+		<meta name="twitter:creator" content="@mastashake08">
+		<meta name="twitter:site" content="@mastashake08">
+		<!-- Facebook OG -->
+		<meta property="og:title" content="@yield('title','Parker POS')" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="{{url()->current()}}" />
+		<meta property="og:image" content="@yield('image',url('/images/icons/icon-384x384.png'))" />
+		<meta name="og:description" content="@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")">
 	</head>
 	<body class="loading">
 		<div id="wrapper">
