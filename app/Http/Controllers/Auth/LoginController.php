@@ -43,7 +43,7 @@ class LoginController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('Stripe')->redirect();
+        return Socialite::driver('stripe')->redirect();
     }
 
     /**
@@ -53,7 +53,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        $user = Socialite::driver('Stripe')->user();
+        $user = Socialite::driver('stripe')->user();
         dd($user);
         $user = \App\User::firstOrCreate(['secret_key' => $user->token]);
         auth()->login($user);
