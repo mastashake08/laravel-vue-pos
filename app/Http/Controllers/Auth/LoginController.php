@@ -57,7 +57,7 @@ class LoginController extends Controller
         $user = \App\User::firstOrCreate([
           'secret_key' => $user->token,
           'name' => $user->user['business_name'],
-          'email'=> $user->getEmail()];
+          'email'=> $user->getEmail()]);
         auth()->login($user);
         return redirect('/home');
 
