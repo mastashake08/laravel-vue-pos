@@ -54,7 +54,6 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
         $socialite = Socialite::driver('stripe')->user();
-        dd($socialite);
         $user = \App\User::firstOrCreate([
           'secret_key' => $socialite->token,
           'name' => $socialite->user['business_name'],
