@@ -44446,10 +44446,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
@@ -44581,12 +44577,10 @@ var render = function() {
                                       }
                                     })
                                   ]
-                                )
-                              ]),
-                              _vm._v(" "),
-                              customer.subscriptions.data.length < 1
-                                ? _c("div", { staticClass: "form-group" }, [
-                                    _c(
+                                ),
+                                _vm._v(" "),
+                                customer.subscriptions.data.length < 1
+                                  ? _c(
                                       "button",
                                       {
                                         staticClass: "btn btn-sm btn-primary",
@@ -44607,10 +44601,8 @@ var render = function() {
                                         })
                                       ]
                                     )
-                                  ])
-                                : _vm._e(),
-                              _vm._v(" "),
-                              _c("div", { staticClass: "form-group" }, [
+                                  : _vm._e(),
+                                _vm._v(" "),
                                 _c(
                                   "button",
                                   {

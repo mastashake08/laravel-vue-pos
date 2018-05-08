@@ -22,11 +22,7 @@
                          <td>
                            <div class="form-group">
                              <button class="btn btn-sm btn-info" v-on:click="createInvoice(customer)">  <span class="glyphicon glyphicon-envelope" data-toggle="tooltip" title="Send Invoice"></span></button>
-                          </div>
-                          <div class="form-group" v-if="customer.subscriptions.data.length < 1">
-                            <button class="btn btn-sm btn-primary" v-on:click="openModal(customer)"> <span class="glyphicon glyphicon-retweet" data-toggle="tooltip" title="Create Subscription"></span></button>
-                         </div>
-                          <div class="form-group">
+                            <button v-if="customer.subscriptions.data.length < 1" class="btn btn-sm btn-primary" v-on:click="openModal(customer)"> <span class="glyphicon glyphicon-retweet" data-toggle="tooltip" title="Create Subscription"></span></button>
                             <button class="btn btn-sm btn-danger" v-on:click="deleteCustomer(index)"> <span class="glyphicon glyphicon-remove-circle" data-toggle="tooltip" title="Delete Customer"></span></button>
                          </div>
                          </td>
