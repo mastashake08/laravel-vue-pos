@@ -90,7 +90,7 @@
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="{{url('/images/about.jpg')}}" alt="" /></span>
 								<p>{{env('APP_NAME')}} is a <a href="https://stripe.com">Stripe powered</a> progressive point of sales web app that allows anyone anywhere to accept payments, manage recurring billing, send invoices and more!</p>
-
+							</article>
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
