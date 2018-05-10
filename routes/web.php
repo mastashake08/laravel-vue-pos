@@ -32,4 +32,4 @@ Route::get('/pricing',function(){
 Route::get('/stripe-tos',function(){
   return view('stripe');
 });
-Route::post('/send-message','HomeController@sendMessage');
+Route::post('/send-message','MessageController@sendMessage');
