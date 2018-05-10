@@ -33,6 +33,6 @@ class FrontPageMessage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.static.frontpage');
+        return $this->markdown('emails.frontpage');
     }
 }
