@@ -6,12 +6,32 @@
 -->
 <html>
 	<head>
-		<title>{{env('APP_NAME')}}</title>
+		<title>Dimension by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="themes/dimension/assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="themes/dimension/assets/css/ie9.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="themes/dimension/assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="manifest" href="manifest.json">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:url" content="{{url()->current()}}">
+    <meta name="twitter:title" content="@yield('title','Parker POS')">
+    <meta name="twitter:description" content="@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")">
+    <meta name="twitter:image" content="@yield('image',url('/images/icons/icon-384x384.png'))">
+    <meta name="twitter:creator" content="@mastashake08">
+    <meta name="twitter:site" content="@mastashake08">
+    <!-- Facebook OG -->
+    <meta property="og:title" content="@yield('title','Parker POS')" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{url()->current()}}" />
+    <meta property="og:image" content="@yield('image',url('/images/icons/icon-384x384.png'))" />
+    <meta name="og:description" content="@yield('description',"Parker POS is an progressive web app point of sales system powered by Stripe!")">
 	</head>
 	<body>
 
@@ -21,13 +41,14 @@
 				<!-- Header -->
 					<header id="header">
 						<div class="logo">
-							<span class="icon fa-diamond"></span>
+							<span class="icon fa-credit-card"></span>
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>{{env('APP_NAME')}}</h1>
-								<p>A fully responsive site template designed by <a href="https://html5up.net">HTML5 UP</a> and released<br />
-								for free under the <a href="https://html5up.net/license">Creative Commons</a> license.</p>
+								<h1>Dimension</h1>
+								<p>An open source <a href="https://stripe.com">Stripe powered</a> progressive point of sales web app designed by <a href="https://jyroneparker.com">Jyrone Parker</a> and released<br />
+								for free under the <a href="https://github.com/mastashake08/laravel-vue-pos">MIT</a> license.</p>
+								<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
 							</div>
 						</div>
 						<nav>
@@ -47,25 +68,28 @@
 						<!-- Intro -->
 							<article id="intro">
 								<h2 class="major">Intro</h2>
-								<span class="image main"><img src="themes/dimension/images/pic01.jpg" alt="" /></span>
-								<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. By the way, check out my <a href="#work">awesome work</a>.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
-							</article>
+								<span class="image main"><img src="{{url('/images/owner.jpg')}}" alt="" /></span>
+								<p>When starting a new business or endeavor accepting payments should be the last thing on your mind! {{env('APP_NAME')}} was created to easily allow you to start taking payments and managing customers. <a href="#work">awesome work</a>.</p>
+								</article>
 
 						<!-- Work -->
 							<article id="work">
-								<h2 class="major">Work</h2>
-								<span class="image main"><img src="themes/dimension/images/pic02.jpg" alt="" /></span>
-								<p>Adipiscing magna sed dolor elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices.</p>
-								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
+								<h2 class="major">Use Cases</h2>
+								<span class="image main"><img src="images/bg.jpg" alt="" /></span>
+								<p>
+									<ul>
+										<li>Sole proprietors who need a simple charging/tipping system</li>
+										<li>Businesses who need to manage recurring billing</li>
+										<li>Businesses that need to manage and pay employees</li>
+									</ul>
+								</p>
 							</article>
 
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
 								<span class="image main"><img src="{{url('/images/about.jpg')}}" alt="" /></span>
-								<p>{{env('APP_NAME')}} is an open source <a href="https://stripe.com" target="_blank">Stripe powered</a> point of sales application. Targeted towards individuals and companies alike; Manage customers, subscriptions, one off charges and more!</p>
-							</article>
+								<p>{{env('APP_NAME')}} is a <a href="https://stripe.com">Stripe powered</a> progressive point of sales web app that allows anyone anywhere to accept payments, manage recurring billing, send invoices and more!</p>
 
 						<!-- Contact -->
 							<article id="contact">
@@ -352,10 +376,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="themes/dimension/assets/js/jquery.min.js"></script>
-			<script src="themes/dimension/assets/js/skel.min.js"></script>
-			<script src="themes/dimension/assets/js/util.js"></script>
-			<script src="themes/dimension/assets/js/main.js"></script>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 	</body>
 </html>
