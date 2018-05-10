@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Dimension by HTML5 UP</title>
+		<title>{{env('APP_NAME')}}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="themes/dimension/assets/css/main.css" />
@@ -45,7 +45,7 @@
 						</div>
 						<div class="content">
 							<div class="inner">
-								<h1>Dimension</h1>
+								<h1>{{env('APP_NAME')}}</h1>
 								<p>An open source <a href="https://stripe.com">Stripe powered</a> progressive point of sales web app designed by <a href="https://jyroneparker.com">Jyrone Parker</a> and released<br />
 								for free under the <a href="https://github.com/mastashake08/laravel-vue-pos">MIT</a> license.</p>
 								<a href="{{url('/login/stripe')}}"><img src="{{url('/images/blue-on-light.png')}}"></a>
@@ -75,7 +75,7 @@
 						<!-- Work -->
 							<article id="work">
 								<h2 class="major">Use Cases</h2>
-								<span class="image main"><img src="images/bg.jpg" alt="" /></span>
+								<span class="image main"><img src="images/card.jpg" alt="" /></span>
 								<p>
 									<ul>
 										<li>Sole proprietors who need a simple charging/tipping system</li>
@@ -367,7 +367,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 				<!-- Footer -->
 					<footer id="footer">
-						<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						<p class="copyright">&copy; {{env('APP_NAME')}}. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 					</footer>
 
 			</div>
