@@ -9,8 +9,6 @@ Email: {{$email}}
 <br>
 Message: {{$message}}
 
-@endcomponent
-
 Thanks,<br>
 {{ config('app.name') }}
 @endcomponent

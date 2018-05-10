@@ -11,19 +11,14 @@ class FrontPageMessage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name,$email,$message;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name,$email,$message)
+    public function __construct()
     {
         //
-        $this->name = $name;
-        $this->email = $email;
-        $this->message = $message;
-
     }
 
     /**
@@ -33,6 +28,6 @@ class FrontPageMessage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.frontpage');
+        return $this->markdown('emails.static.frontpage');
     }
 }
