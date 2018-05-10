@@ -9,9 +9,9 @@
 		<title>Dimension by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="themes/dimension/assets/css/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="themes/dimension/assets/css/ie9.css" /><![endif]-->
+		<noscript><link rel="stylesheet" href="themes/dimension/assets/css/noscript.css" /></noscript>
 		<link rel="manifest" href="manifest.json">
 
     <meta name="mobile-web-app-capable" content="yes">
@@ -376,10 +376,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<div id="bg"></div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="themes/dimension/assets/js/jquery.min.js"></script>
+			<script src="themes/dimension/assets/js/skel.min.js"></script>
+			<script src="themes/dimension/assets/js/util.js"></script>
+			<script src="themes/dimension/assets/js/main.js"></script>
 
 	</body>
 </html>
