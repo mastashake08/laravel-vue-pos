@@ -63,14 +63,15 @@
 						<!-- About -->
 							<article id="about">
 								<h2 class="major">About</h2>
-								<span class="image main"><img src="themes/dimension/images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+								<span class="image main"><img src="{{url('/images/about.jpg')}}" alt="" /></span>
+								<p>{{env('APP_NAME')}} is an open source <a href="https://stripe.com" target="_blank">Stripe powered</a> point of sales application. Targeted towards individuals and companies alike; Manage customers, subscriptions, one off charges and more!</p>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form method="post" action="{{url('/send-message')}}">
+									@csrf
 									<div class="field half first">
 										<label for="name">Name</label>
 										<input type="text" name="name" id="name" />
