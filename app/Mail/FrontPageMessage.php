@@ -17,7 +17,7 @@ class FrontPageMessage extends Mailable
      *
      * @return void
      */
-    public function __construct($customer, $plan)
+    public function __construct($name,$email,$message)
     {
         //
         $this->name = $name;
