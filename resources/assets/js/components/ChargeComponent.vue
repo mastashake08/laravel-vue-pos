@@ -6,7 +6,9 @@
                     <div class="panel-heading">Make A Charge</div>
 
                     <div class="panel-body">
-                      <h2>Balance: ${{balance}}</h2>
+                      <h2>Available Balance: ${{balance}}</h2>
+                      <h2>Pending Balance: ${{pending}}</h2>
+
                         <fieldset>
                         <div class="form-group">
                         <label class="col-sm-3 control-label" for="amount">Amount</label>
@@ -117,7 +119,7 @@
         description: null
         }
         },
-        props: ['balance'],
+        props: ['balance','pending'],
         methods: {
         createCharge: function(){
         axios.post('/api/charge',{card: this.card, amount: this.amount, description: this.description})

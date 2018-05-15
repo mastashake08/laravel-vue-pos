@@ -27,7 +27,8 @@ class HomeController extends Controller
         $balance = \Stripe\Balance::retrieve();
 
         $with = [
-          'balance' => $balance->available[0]['amount']/100
+          'balance' => $balance->available[0]['amount']/100,
+          'pending' => $balance->pending[0]['amount']/100
         ];
         return view('home')->with($with);
     }
