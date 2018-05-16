@@ -74,14 +74,5 @@ class StripeController extends Controller
       $user->notify(new StripeEvent($request->type));
     }
 
-    public function payout(Request $request){
-      \Stripe\Stripe::setApiKey($request->user()->secret_key);
-
-      $payout = \Stripe\Payout::create(array(
-        "amount" => $request->amount * 100,
-        "currency" => "usd",
-      ));
-      return response()->json($payout);
-
-    }
+  
 }

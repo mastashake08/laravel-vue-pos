@@ -27,4 +27,4 @@ Route::middleware('auth:api')->resource('/plan','PlanController');
 Route::middleware('auth:api')->resource('/subscription','SubscriptionController');
 Route::post('/subscription-activation','SubscriptionController@sendActivationEmail');
 Route::post('/webhook','StripeController@webhook');
-Route::middleware('auth:api')->post('/payout','StripeController@payout');
+//Route::middleware('auth:api')->post('/payout','StripeController@payout');
