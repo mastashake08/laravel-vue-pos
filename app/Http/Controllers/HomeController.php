@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        \Stripe\Stripe::setApiKey($request->user->secret_key);
+        \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
         $balance = \Stripe\Balance::retrieve();
 
         $with = [
