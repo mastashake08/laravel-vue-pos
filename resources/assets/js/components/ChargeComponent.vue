@@ -7,6 +7,7 @@
 
                     <div class="panel-body">
                       <h2>Available Balance: ${{balance}}</h2>
+                      <button class="btn btn-sm btn-link btn-primary" v-on:click="payout()">Payout</button>
                       <h2>Pending Balance: ${{pending}}</h2>
 
                         <fieldset>
@@ -128,7 +129,17 @@
         }).catch(function(error){
         alert(error.message);
         });
+      },
+      payout: function(){
+        let ans = prompt("How much to payout (max: "+this.balance+")");
+        if(ans <= this.balance){
+          axios.post('/api/payout',{amount:ans}).then(data => {
+            alert(data.data.status);
+          }).catch(err => {
+            alert('Error try again!');
+          });
         }
+      }
         }
     }
 </script>

@@ -73,4 +73,15 @@ class StripeController extends Controller
       $user = \App\User::where('stripe_account_id',$request->account)->first();
       $user->notify(new StripeEvent($request->type));
     }
+
+    public function payout(Request $request){
+      \Stripe\Stripe::setApiKey($request->user()->secret_key);
+
+      $payout = \Stripe\Payout::create(array(
+        "amount" => $request->amount * 100,
+        "currency" => "usd",
+      ));
+      return response()->json($payout);
+
+    }
 }
