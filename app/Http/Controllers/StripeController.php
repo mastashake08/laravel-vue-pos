@@ -13,7 +13,7 @@ class StripeController extends Controller
     }
 
     public function charge(Request $request){
-      \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+      \Stripe\Stripe::setApiKey($request->user()->secret_key);
       try {
         // Use Stripe's library to make requests...
         $token = \Stripe\Token::create(array(
@@ -75,7 +75,7 @@ class StripeController extends Controller
     }
 
     public function payout(Request $request){
-      \Stripe\Stripe::setApiKey(auth()->user()->secret_key);
+      \Stripe\Stripe::setApiKey($request->user()->secret_key);
 
       $payout = \Stripe\Payout::create(array(
         "amount" => $request->amount * 100,
