@@ -6,8 +6,8 @@
                     <div class="panel-heading">Make A Charge</div>
 
                     <div class="panel-body">
-                      <h2>Available Balance: ${{balance}}</h2>
-                      <button class="btn btn-sm btn-link btn-primary" v-on:click="payout()">Payout</button>
+                      <h2>Available Balance: ${{balance}}
+                      <button class="btn btn-sm btn-link btn-primary" v-on:click="payout()">Payout</button></h2>
                       <h2>Pending Balance: ${{pending}}</h2>
 
                         <fieldset>
