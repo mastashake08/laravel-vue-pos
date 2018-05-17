@@ -43338,6 +43338,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
       });
     }
+    this.total = this.pending + this.balance;
+    this.total = parseFloat(this.total).toFixed(2);
   },
   data: function data() {
     return {
@@ -43349,7 +43351,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       },
       amount: 0,
       email: null,
-      description: null
+      description: null,
+      total: 0
     };
   },
 
@@ -43388,7 +43391,7 @@ var render = function() {
             _vm._v(" "),
             _c("h3", [
               _vm._v("Total Balance: "),
-              _c("strong", [_vm._v("$" + _vm._s(_vm.pending + _vm.balance))])
+              _c("strong", [_vm._v("$" + _vm._s(_vm.total))])
             ]),
             _vm._v(" "),
             _c("fieldset", [

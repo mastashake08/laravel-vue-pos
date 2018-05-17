@@ -8,7 +8,7 @@
                     <div class="panel-body">
                       <h2>Available Balance: ${{balance}}</h2>
                       <h2>Pending Balance: ${{pending}}</h2>
-                      <h3>Total Balance: <strong>${{pending + balance}}</strong></h3>
+                      <h3>Total Balance: <strong>${{total}}</strong></h3>
 
                         <fieldset>
                         <div class="form-group">
@@ -106,6 +106,8 @@
               });
             });
           }
+          this.total = this.pending + this.balance;
+          this.total = parseFloat(this.total).toFixed(2);
         },
         data(){
         return{
@@ -117,7 +119,8 @@
         },
         amount: 0,
         email: null,
-        description: null
+        description: null,
+        total: 0
         }
         },
         props: ['balance','pending'],
