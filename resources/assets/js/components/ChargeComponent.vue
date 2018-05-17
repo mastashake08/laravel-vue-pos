@@ -6,8 +6,9 @@
                     <div class="panel-heading">Make A Charge</div>
 
                     <div class="panel-body">
-                      <h2>Available Balance: ${{balance}}</h2>
-                      <h2>Pending Balance: ${{pending}}</h2>
+                      <h2>Available Balance: ${{balance.toFixed(2)}}</h2>
+                      <h2>Pending Balance: ${{pending.toFixed(2)}}</h2>
+                      <h3>Total Balance: <strong>${{pending.toFixed(2) + balance.toFixed(2)}}</strong></h3>
 
                         <fieldset>
                         <div class="form-group">
