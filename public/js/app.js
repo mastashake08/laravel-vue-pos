@@ -43338,7 +43338,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
       });
     }
-    this.total = this.pending + this.balance;
+    this.total = parseFloat(this.pending) + parseFloat(this.balance);
     this.total = parseFloat(this.total).toFixed(2);
   },
   data: function data() {

@@ -106,7 +106,7 @@
               });
             });
           }
-          this.total = this.pending + this.balance;
+          this.total = parseFloat(this.pending) + parseFloat(this.balance);
           this.total = parseFloat(this.total).toFixed(2);
         },
         data(){
