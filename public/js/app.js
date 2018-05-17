@@ -43382,21 +43382,13 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "panel-body" }, [
-            _c("h2", [
-              _vm._v("Available Balance: $" + _vm._s(_vm.balance.toFixed(2)))
-            ]),
+            _c("h2", [_vm._v("Available Balance: $" + _vm._s(_vm.balance))]),
             _vm._v(" "),
-            _c("h2", [
-              _vm._v("Pending Balance: $" + _vm._s(_vm.pending.toFixed(2)))
-            ]),
+            _c("h2", [_vm._v("Pending Balance: $" + _vm._s(_vm.pending))]),
             _vm._v(" "),
             _c("h3", [
               _vm._v("Total Balance: "),
-              _c("strong", [
-                _vm._v(
-                  "$" + _vm._s(_vm.pending.toFixed(2) + _vm.balance.toFixed(2))
-                )
-              ])
+              _c("strong", [_vm._v("$" + _vm._s(_vm.pending + _vm.balance))])
             ]),
             _vm._v(" "),
             _c("fieldset", [
