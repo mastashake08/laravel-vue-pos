@@ -28,3 +28,8 @@ Route::middleware('auth:api')->resource('/subscription','SubscriptionController'
 Route::post('/subscription-activation','SubscriptionController@sendActivationEmail');
 Route::post('/webhook','StripeController@webhook');
 //Route::middleware('auth:api')->post('/payout','StripeController@payout');
+
+
+//Product & Sku Routes
+Route::middleware('auth:api')->resource('/product','ProductController');
+Route::middleware('auth:api')->resource('/sku','SkuController');
