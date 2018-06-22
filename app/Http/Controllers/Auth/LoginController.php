@@ -55,11 +55,11 @@ class LoginController extends Controller
     {
         $socialite = Socialite::driver('stripe')->user();
         $user = \App\User::firstOrNew([
-          'name' => $socialite->user['business_name'],
           'email'=> $socialite->getEmail()
         ]);
 
         $user->fill([
+          'name' => $socialite->user['business_name'],
           'secret_key' => $socialite->token,
           'tag' => snake_case($socialite->user['business_name']),
           'stripe_account_id' => $socialite->user['id']
